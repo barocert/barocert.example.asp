@@ -86,7 +86,7 @@ Public function getTime(useStaticIP, useLocalTimeYN, useGAIP)
             Err.raise er.code , "LINKHUB", er.message
         End If
 
-         Set winhttp1 = Nothing
+        Set winhttp1 = Nothing
     End If
 
     getTime = result
@@ -149,7 +149,7 @@ Public Function GetBalance(BearerToken, serviceID, useStaticIP )
     winhttp1.send
     winhttp1.WaitForResponse
     Dim result : result = winhttp1.responseText
-       
+
     If winhttp1.Status <> 200 Then
         Dim er : Set er = parse(result)
         Err.raise er.code , "LINKHUB", er.message
