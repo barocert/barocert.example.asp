@@ -37,11 +37,11 @@ Class KakaocertService
 	End Function
 
 	Public Function RequestIdentity(ClientCode, ByRef Identity)
-		
+
 		Dim tmpDic : Set tmpDic = Identity.toJsonInfo
 
 		Dim postdata : postdata = toString(tmpDic)
-		
+
 		Dim result : Set result = m_BarocertBase.httpPOST("/KAKAO/Identity/" + ClientCode, m_BarocertBase.getSession_token(), postdata)
 
 		Dim infoTmp : Set infoTmp = New IdentityReceipt
@@ -61,10 +61,10 @@ Class KakaocertService
 		End If
 
 		Dim result : Set result = m_BarocertBase.httpGET("/KAKAO/Identity/" + ClientCode + "/" + ReceiptID, m_BarocertBase.getSession_token)
-		
+
 		Dim infoTmp : Set infoTmp = New IdentityStatus
 		infoTmp.fromJsonInfo result
-		
+
 		Set GetIdentityStatus = infoTmp
 	End Function 
 
@@ -78,7 +78,6 @@ Class KakaocertService
 			Err.Raise -99999999, "KAKAOCERT", "접수아이디가 입력되지 않았습니다."
 		End If
 
-		
 		Dim result : Set result = m_BarocertBase.httpPOST("/KAKAO/Identity/" + ClientCode + "/" + ReceiptID, m_BarocertBase.getSession_token(), "")
 		
 		Dim infoTmp : Set infoTmp = New IdentityResult
@@ -94,7 +93,7 @@ Class KakaocertService
 		Dim postdata : postdata = toString(tmpDic)
 
 		Dim result : Set result = m_BarocertBase.httpPOST("/KAKAO/Sign/" + ClientCode , m_BarocertBase.getSession_token(), postdata)
-		
+
 		Dim infoTmp : Set infoTmp = New SignReceipt
 		infoTmp.fromJsonInfo result
 
@@ -111,9 +110,8 @@ Class KakaocertService
 			Err.Raise -99999999, "KAKAOCERT", "접수아이디가 입력되지 않았습니다."
 		End If
 
-		
 		Dim result : Set result = m_BarocertBase.httpGET("/KAKAO/Sign/" + ClientCode + "/" + ReceiptID, m_BarocertBase.getSession_token())
-		
+
 		Dim infoTmp : Set infoTmp = New SignStatus
 		infoTmp.fromJsonInfo result
 		Set GetSignStatus = infoTmp
@@ -128,22 +126,22 @@ Class KakaocertService
 		If ReceiptID = "" Then
 			Err.Raise -99999999, "KAKAOCERT", "접수아이디가 입력되지 않았습니다."
 		End If
-		
+
 		Dim result : Set result = m_BarocertBase.httpPOST("/KAKAO/Sign/" + ClientCode + "/" + ReceiptID, m_BarocertBase.getSession_token(), "")
-		
+
 		Dim infoTmp : Set infoTmp = New SignResult
 		infoTmp.fromJsonInfo result
 		Set VerifySign = infoTmp
 	End Function 
 
 	Public Function RequestMultiSign(ClientCode, ByRef multiSign )
-		
+
 		Dim tmpDic : Set tmpDic = multiSign.toJsonInfo
 
 		Dim postdata : postdata = toString(tmpDic)
-		
+
 		Dim result : Set result = m_BarocertBase.httpPOST("/KAKAO/MultiSign/" + ClientCode, m_BarocertBase.getSession_token(), postdata)
-		
+
 		Dim infoTmp : Set infoTmp = New MultiSignReceipt
 		infoTmp.fromJsonInfo result
 
@@ -187,9 +185,9 @@ Class KakaocertService
 		Dim tmpDic : Set tmpDic = cms.toJsonInfo
 
 		Dim postdata : postdata = toString(tmpDic)
-		
+
 		Dim result : Set result = m_BarocertBase.httpPOST("/KAKAO/CMS/" + ClientCode, m_BarocertBase.getSession_token(), postdata)
-		
+
 		Dim infoTmp : Set infoTmp = New CMSReceipt
 		infoTmp.fromJsonInfo result
 
@@ -295,7 +293,6 @@ Class IdentityStatus
 
 	Public Sub fromJsonInfo(jsonInfo)
 		On Error Resume Next
-		
 			If Not isEmpty(jsonInfo.receiptID) Then
 				receiptID = jsonInfo.receiptID
 			End If
@@ -419,7 +416,7 @@ Class SignStatus
 	Public clientCode
 	Public state
 	Public expireIn
-    Public tokenType
+	Public tokenType
 	Public callCenterName
 	Public callCenterNum
 	Public reqTitle
@@ -435,7 +432,6 @@ Class SignStatus
 
 	Public Sub fromJsonInfo(jsonInfo)
 		On Error Resume Next
-		
 			If Not isEmpty(jsonInfo.receiptID) Then
 				receiptID = jsonInfo.receiptID
 			End If
@@ -553,7 +549,7 @@ Class MultiSign
 	Public reqTitle
 	Public expireIn
 	Public tokens
-    Public tokenType
+	Public tokenType
 	Public returnURL
 	Public appUseYN
 
@@ -640,7 +636,7 @@ Class MultiSignStatus
 	Public reqTitle
 	Public authCategory
 	Public returnURL
-    Public tokenType
+	Public tokenType
 	Public requestDT
 	Public viewDT
 	Public completeDT
@@ -651,7 +647,6 @@ Class MultiSignStatus
 
 	Public Sub fromJsonInfo(jsonInfo)
 		On Error Resume Next
-		
 			If Not isEmpty(jsonInfo.receiptID) Then
 				receiptID = jsonInfo.receiptID
 			End If
@@ -811,7 +806,6 @@ Class CMSStatus
 
 	Public Sub fromJsonInfo(jsonInfo)
 		On Error Resume Next
-		
 			If Not isEmpty(jsonInfo.receiptID) Then
 				receiptID = jsonInfo.receiptID
 			End If
