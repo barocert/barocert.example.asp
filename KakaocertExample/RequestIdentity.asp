@@ -2,7 +2,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
         <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-        <title>Kakaocert SDK ASP Example.</title>
+        <title>Barocert SDK ASP Example.</title>
     </head>
 <!--#include file="common.asp"--> 
 
