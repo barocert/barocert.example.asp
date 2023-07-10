@@ -13,7 +13,7 @@
 	' https://developers.barocert.com/reference/kakao/java/sign/api-multi#VerifyMultiSign
 	'**************************************************************
 
-	' 이용기관코드, 파트너가 등록한 이용기관의 코드, (파트너 사이트에서 확인가능)
+	' 이용기관코드, 파트너가 등록한 이용기관의 코드 (파트너 사이트에서 확인가능)
 	Dim clientCode : clientCode = "023040000001"	
 
 	' 전자서명 요청시 반환된 접수아이디
