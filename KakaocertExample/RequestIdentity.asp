@@ -1,23 +1,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
-		<link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
-		<title>Kakaocert SDK ASP Example.</title>
-	</head>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+        <link rel="stylesheet" type="text/css" href="/Example.css" media="screen" />
+        <title>Kakaocert SDK ASP Example.</title>
+    </head>
 <!--#include file="common.asp"--> 
 
 <%
-	'**************************************************************
-	' 카카오톡 사용자에게 본인인증 전자서명을 요청합니다.
-	' https://developers.barocert.com/reference/kakao/java/identity/api#RequestIdentity
+    '**************************************************************
+    ' 카카오톡 사용자에게 본인인증 전자서명을 요청합니다.
+    ' https://developers.barocert.com/reference/kakao/java/identity/api#RequestIdentity
     '**************************************************************
 
-	' 이용기관코드, 파트너가 등록한 이용기관의 코드 (파트너 사이트에서 확인가능)
-	Dim clientCode : clientCode = "023040000001"		
-	
-	' 본인인증 요청 정보 객체
-	Dim reqIdentity : Set reqIdentity = new Identity
-	' 수신자 휴대폰번호 - 11자 (하이픈 제외)
+    ' 이용기관코드, 파트너가 등록한 이용기관의 코드 (파트너 사이트에서 확인가능)
+    Dim clientCode : clientCode = "023040000001"        
+    
+    ' 본인인증 요청 정보 객체
+    Dim reqIdentity : Set reqIdentity = new Identity
+    ' 수신자 휴대폰번호 - 11자 (하이픈 제외)
     reqIdentity.ReceiverHP = m_KakaocertService.encrypt("01012341234")
     ' 수신자 성명 - 80자
     reqIdentity.ReceiverName = m_KakaocertService.encrypt("홍길동")
@@ -35,37 +35,37 @@
     ' App to App 방식 이용시, 호출할 URL
     ' reqIdentity.ReturnURL = "https://www.kakaocert.com"
 
-	On Error Resume Next
+    On Error Resume Next
 
-		Dim result : Set result = m_KakaocertService.RequestIdentity(clientCode, reqIdentity)
+        Dim result : Set result = m_KakaocertService.RequestIdentity(clientCode, reqIdentity)
 
-		If Err.Number <> 0 then
-			Dim code : code = Err.Number
-			Dim message : message =  Err.Description
-			Err.Clears
-		End If
+        If Err.Number <> 0 then
+            Dim code : code = Err.Number
+            Dim message : message =  Err.Description
+            Err.Clears
+        End If
 
-	On Error GoTo 0
+    On Error GoTo 0
 
 %>
-	<body>
-		<div id="content">
-			<p class="heading1">Response</p>
-			<br/>
-			<fieldset class="fieldset1">
-				<legend>카카오 본인인증 요청</legend>
-				<% If code = 0 Then %>
-					<ul>
-						<li>접수아이디 (ReceiptID) : <%=result.receiptID %></li>
-						<li>앱스킴 (scheme) : <%=result.scheme %></li>
-					</ul>
-				<%	Else  %>
-					<ul>
-						<li>Response.code: <%=code%> </li>
-						<li>Response.message: <%=message%> </li>
-					</ul>	
-				<%	End If	%>
-			</fieldset>
-		</div>
-	</body>
+    <body>
+        <div id="content">
+            <p class="heading1">Response</p>
+            <br/>
+            <fieldset class="fieldset1">
+                <legend>카카오 본인인증 요청</legend>
+                <% If code = 0 Then %>
+                    <ul>
+                        <li>접수아이디 (ReceiptID) : <%=result.receiptID %></li>
+                        <li>앱스킴 (scheme) : <%=result.scheme %></li>
+                    </ul>
+                <%    Else  %>
+                    <ul>
+                        <li>Response.code: <%=code%> </li>
+                        <li>Response.message: <%=message%> </li>
+                    </ul>    
+                <%    End If    %>
+            </fieldset>
+        </div>
+    </body>
 </html>
