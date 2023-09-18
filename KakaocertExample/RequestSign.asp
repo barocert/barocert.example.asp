@@ -18,11 +18,11 @@
     ' 전자서명 요청 정보 객체
     Dim reqSign : Set reqSign = new Sign
     ' 수신자 휴대폰번호 - 11자 (하이픈 제외)
-    reqSign.ReceiverHP = m_KakaocertService.encrypt("01067668440")
+    reqSign.ReceiverHP = m_KakaocertService.encrypt("01012341234")
     ' 수신자 성명 - 80자
-    reqSign.ReceiverName = m_KakaocertService.encrypt("정우석")
+    reqSign.ReceiverName = m_KakaocertService.encrypt("홍길동")
     ' 수신자 생년월일 - 8자 (yyyyMMdd)
-    reqSign.ReceiverBirthday = m_KakaocertService.encrypt("19900911")
+    reqSign.ReceiverBirthday = m_KakaocertService.encrypt("19700101")
     ' 인증요청 메시지 제목 - 최대 40자
     reqSign.ReqTitle = "전자서명단건테스트"
     ' 인증요청 만료시간 - 최대 1,000(초)까지 입력 가능
@@ -57,18 +57,17 @@
             <br/>
             <fieldset class="fieldset1">
                 <legend>카카오 전자서명(단건) 요청</legend>
-                <% 
-                If code = 0 Then %>
+                <% If code = 0 Then %>
                     <ul>
                         <li>접수아이디 (ReceiptID) : <%=result.receiptId %></li>
                         <li>앱스킴 (scheme) : <%=result.scheme %></li>
                     </ul>
-                <%    Else  %>
+                <% Else %>
                     <ul>
                         <li>Response.code: <%=code%> </li>
                         <li>Response.message: <%=message%> </li>
                     </ul>    
-                <%    End If    %>
+                <% End If %>
             </fieldset>
         </div>
     </body>

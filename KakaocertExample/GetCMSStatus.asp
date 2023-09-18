@@ -15,7 +15,7 @@
 	Dim clientCode : clientCode = "023040000001"	
 
 	' 출금동의 요청시 반환된 접수아이디
-	Dim receiptID : receiptID = "02307040230400000010000000000001"
+	Dim receiptID : receiptID = "02309180230400000010000000000007"
 	
 	On Error Resume Next
 
@@ -34,9 +34,7 @@
 			<br/>
 			<fieldset class="fieldset1">
 				<legend>카카오 출금동의 상태확인 </legend>
-				<% 
-					If code = 0 Then 
-				%>
+				<% If code = 0 Then %>
 					<ul>
 						<li>접수아이디 (ReceiptID) : <%=result.receiptID %></li>
 						<li>이용기관 코드 (ClientCode) : <%=result.clientCode %></li>
@@ -56,16 +54,12 @@
 						<li>앱스킴 (Scheme) : <%=result.scheme %></li>
 						<li>앱사용유무 (AppUseYN) : <%=result.appUseYN %></li>
 					</ul>	
-					<%	
-						Else
-					%>
-						<ul>
-							<li>Response.code: <%=code%> </li>
-							<li>Response.message: <%=message%> </li>
-						</ul>	
-					<%	
-						End If
-					%>
+				<% Else %>
+					<ul>
+						<li>Response.code: <%=code%> </li>
+						<li>Response.message: <%=message%> </li>
+					</ul>	
+				<% End If %>
 			</fieldset>
 		</div>
 	</body>

@@ -53,11 +53,11 @@ Class PasscertService
 	Public Function GetIdentityStatus(ClientCode, ReceiptID)
 
 		If ClientCode = "" Then
-			Err.Raise -99999999, "PASSCERT", "ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½Úµå°¡ ï¿½Ô·Âµï¿½ï¿½ï¿½ ï¿½Ê¾Ò½ï¿½ï¿½Ï´ï¿½."
+			Err.Raise -99999999, "PASSCERT", "ÀÌ¿ë±â°üÄÚµå°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 		End If
 
 		If ReceiptID = "" Then
-			Err.Raise -99999999, "PASSCERT", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ô·Âµï¿½ï¿½ï¿½ ï¿½Ê¾Ò½ï¿½ï¿½Ï´ï¿½."
+			Err.Raise -99999999, "PASSCERT", "Á¢¼ö¾ÆÀÌµð°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 		End If
 
 		Dim result : Set result = m_BarocertBase.httpGET("/PASS/Identity/" + ClientCode + "/" + ReceiptID, m_BarocertBase.getSession_token)
@@ -75,11 +75,11 @@ Class PasscertService
 		Dim postdata : postdata = toString(tmpDic)
 
 		If ClientCode = "" Then
-			Err.Raise -99999999, "PASSCERT", "ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½Úµå°¡ ï¿½Ô·Âµï¿½ï¿½ï¿½ ï¿½Ê¾Ò½ï¿½ï¿½Ï´ï¿½."
+			Err.Raise -99999999, "PASSCERT", "ÀÌ¿ë±â°üÄÚµå°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 		End If
 
 		If ReceiptID = "" Then
-			Err.Raise -99999999, "PASSCERT", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ô·Âµï¿½ï¿½ï¿½ ï¿½Ê¾Ò½ï¿½ï¿½Ï´ï¿½."
+			Err.Raise -99999999, "PASSCERT", "Á¢¼ö¾ÆÀÌµð°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 		End If
 
 		Dim result : Set result = m_BarocertBase.httpPOST("/PASS/Identity/" + ClientCode + "/" + ReceiptID, m_BarocertBase.getSession_token(), postdata)
@@ -107,11 +107,11 @@ Class PasscertService
 	Public Function GetSignStatus(ClientCode, ReceiptID)
 
 		If ClientCode = "" Then
-			Err.Raise -99999999, "PASSCERT", "ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½Úµå°¡ ï¿½Ô·Âµï¿½ï¿½ï¿½ ï¿½Ê¾Ò½ï¿½ï¿½Ï´ï¿½."
+			Err.Raise -99999999, "PASSCERT", "ÀÌ¿ë±â°üÄÚµå°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 		End If
 
 		If ReceiptID = "" Then
-			Err.Raise -99999999, "PASSCERT", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ô·Âµï¿½ï¿½ï¿½ ï¿½Ê¾Ò½ï¿½ï¿½Ï´ï¿½."
+			Err.Raise -99999999, "PASSCERT", "Á¢¼ö¾ÆÀÌµð°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 		End If
 
 		Dim result : Set result = m_BarocertBase.httpGET("/PASS/Sign/" + ClientCode + "/" + ReceiptID, m_BarocertBase.getSession_token())
@@ -128,11 +128,11 @@ Class PasscertService
 		Dim postdata : postdata = toString(tmpDic)
 
 		If ClientCode = "" Then
-			Err.Raise -99999999, "PASSCERT", "ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½Úµå°¡ ï¿½Ô·Âµï¿½ï¿½ï¿½ ï¿½Ê¾Ò½ï¿½ï¿½Ï´ï¿½."
+			Err.Raise -99999999, "PASSCERT", "ÀÌ¿ë±â°üÄÚµå°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 		End If
 
 		If ReceiptID = "" Then
-			Err.Raise -99999999, "PASSCERT", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ô·Âµï¿½ï¿½ï¿½ ï¿½Ê¾Ò½ï¿½ï¿½Ï´ï¿½."
+			Err.Raise -99999999, "PASSCERT", "Á¢¼ö¾ÆÀÌµð°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 		End If
 
 		Dim result : Set result = m_BarocertBase.httpPOST("/PASS/Sign/" + ClientCode + "/" + ReceiptID, m_BarocertBase.getSession_token(), postdata)
@@ -159,11 +159,11 @@ Class PasscertService
 	Public Function GetCMSStatus(ClientCode, ReceiptID)
 
 		If ClientCode = "" Then
-			Err.Raise -99999999, "PASSCERT", "ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½Úµå°¡ ï¿½Ô·Âµï¿½ï¿½ï¿½ ï¿½Ê¾Ò½ï¿½ï¿½Ï´ï¿½."
+			Err.Raise -99999999, "PASSCERT", "ÀÌ¿ë±â°üÄÚµå°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 		End If
 
 		If ReceiptID = "" Then
-			Err.Raise -99999999, "PASSCERT", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ô·Âµï¿½ï¿½ï¿½ ï¿½Ê¾Ò½ï¿½ï¿½Ï´ï¿½."
+			Err.Raise -99999999, "PASSCERT", "Á¢¼ö¾ÆÀÌµð°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 		End If
 
 		Dim infoTmp : Set infoTmp = New CMSStatus
@@ -180,11 +180,11 @@ Class PasscertService
 		Dim postdata : postdata = toString(tmpDic)
 
 		If ClientCode = "" Then
-			Err.Raise -99999999, "PASSCERT", "ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½Úµå°¡ ï¿½Ô·Âµï¿½ï¿½ï¿½ ï¿½Ê¾Ò½ï¿½ï¿½Ï´ï¿½."
+			Err.Raise -99999999, "PASSCERT", "ÀÌ¿ë±â°üÄÚµå°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 		End If
 
 		If ReceiptID = "" Then
-			Err.Raise -99999999, "PASSCERT", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ô·Âµï¿½ï¿½ï¿½ ï¿½Ê¾Ò½ï¿½ï¿½Ï´ï¿½."
+			Err.Raise -99999999, "PASSCERT", "Á¢¼ö¾ÆÀÌµð°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 		End If
 
 		Dim infoTmp : Set infoTmp = New CMSResult
@@ -211,11 +211,11 @@ Class PasscertService
 	Public Function GetLoginStatus(ClientCode, ReceiptID)
 
 		If ClientCode = "" Then
-			Err.Raise -99999999, "PASSCERT", "ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½Úµå°¡ ï¿½Ô·Âµï¿½ï¿½ï¿½ ï¿½Ê¾Ò½ï¿½ï¿½Ï´ï¿½."
+			Err.Raise -99999999, "PASSCERT", "ÀÌ¿ë±â°üÄÚµå°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 		End If
 
 		If ReceiptID = "" Then
-			Err.Raise -99999999, "PASSCERT", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ô·Âµï¿½ï¿½ï¿½ ï¿½Ê¾Ò½ï¿½ï¿½Ï´ï¿½."
+			Err.Raise -99999999, "PASSCERT", "Á¢¼ö¾ÆÀÌµð°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 		End If
 
 		Dim infoTmp : Set infoTmp = New LoginStatus
@@ -232,11 +232,11 @@ Class PasscertService
 		Dim postdata : postdata = toString(tmpDic)
 
 		If ClientCode = "" Then
-			Err.Raise -99999999, "PASSCERT", "ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½Úµå°¡ ï¿½Ô·Âµï¿½ï¿½ï¿½ ï¿½Ê¾Ò½ï¿½ï¿½Ï´ï¿½."
+			Err.Raise -99999999, "PASSCERT", "ÀÌ¿ë±â°üÄÚµå°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 		End If
 
 		If ReceiptID = "" Then
-			Err.Raise -99999999, "PASSCERT", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ô·Âµï¿½ï¿½ï¿½ ï¿½Ê¾Ò½ï¿½ï¿½Ï´ï¿½."
+			Err.Raise -99999999, "PASSCERT", "Á¢¼ö¾ÆÀÌµð°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù."
 		End If
 
 		Dim infoTmp : Set infoTmp = New LoginResult
@@ -395,16 +395,11 @@ Class IdentityVerify
 	Public receiverHP
 	Public receiverName
 
-	Public Sub fromJsonInfo(jsonInfo)
-		On Error Resume Next
-			If Not isEmpty(jsonInfo.receiverHP) Then
-				receiverHP = jsonInfo.receiverHP
-			End If
-			If Not isEmpty(jsonInfo.receiverName) Then
-				receiverName = jsonInfo.receiverName
-			End If
-		On Error GoTo 0
-	End Sub
+	Public Function toJsonInfo()
+		Set toJsonInfo = JSON.parse("{}")
+		toJsonInfo.Set "receiverHP", receiverHP
+		toJsonInfo.Set "receiverName", receiverName
+	End Function 
 End Class
 
 Class IdentityResult
@@ -418,7 +413,6 @@ Class IdentityResult
 	Public receiverTelcoType
 	Public signedData
 	Public ci
-
 	Public Sub fromJsonInfo(jsonInfo)
 		On Error Resume Next
 			If Not isEmpty(jsonInfo.receiptID) Then
@@ -619,16 +613,11 @@ Class SignVerify
 	Public receiverHP
 	Public receiverName
 
-	Public Sub fromJsonInfo(jsonInfo)
-		On Error Resume Next
-			If Not isEmpty(jsonInfo.receiverHP) Then
-				receiverHP = jsonInfo.receiverHP
-			End If
-			If Not isEmpty(jsonInfo.receiverName) Then
-				receiverName = jsonInfo.receiverName
-			End If
-		On Error GoTo 0
-	End Sub
+	Public Function toJsonInfo()
+		Set toJsonInfo = JSON.parse("{}")
+		toJsonInfo.Set "receiverHP", receiverHP
+		toJsonInfo.Set "receiverName", receiverName
+	End Function 
 End Class
 
 Class SignResult
@@ -835,16 +824,11 @@ Class CMSVerify
 	Public receiverHP
 	Public receiverName
 
-	Public Sub fromJsonInfo(jsonInfo)
-		On Error Resume Next
-			If Not isEmpty(jsonInfo.receiverHP) Then
-				receiverHP = jsonInfo.receiverHP
-			End If
-			If Not isEmpty(jsonInfo.receiverName) Then
-				receiverName = jsonInfo.receiverName
-			End If
-		On Error GoTo 0
-	End Sub
+	Public Function toJsonInfo()
+		Set toJsonInfo = JSON.parse("{}")
+		toJsonInfo.Set "receiverHP", receiverHP
+		toJsonInfo.Set "receiverName", receiverName
+	End Function 
 End Class
 
 Class CMSResult
@@ -1043,16 +1027,11 @@ Class LoginVerify
 	Public receiverHP
 	Public receiverName
 
-	Public Sub fromJsonInfo(jsonInfo)
-		On Error Resume Next
-			If Not isEmpty(jsonInfo.receiverHP) Then
-				receiverHP = jsonInfo.receiverHP
-			End If
-			If Not isEmpty(jsonInfo.receiverName) Then
-				receiverName = jsonInfo.receiverName
-			End If
-		On Error GoTo 0
-	End Sub
+	Public Function toJsonInfo()
+		Set toJsonInfo = JSON.parse("{}")
+		toJsonInfo.Set "receiverHP", receiverHP
+		toJsonInfo.Set "receiverName", receiverName
+	End Function 
 End Class
 
 Class LoginResult

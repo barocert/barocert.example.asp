@@ -17,11 +17,11 @@
 	Dim clientCode : clientCode = "023040000001"	
 
 	' 본인인증 요청시 반환된 접수아이디
-	Dim receiptID : receiptID = "02307040230400000010000000000007"
+	Dim receiptID : receiptID = "02309180230700000140000000000008"
 	
 	On Error Resume Next
 
-	Dim result : Set result = m_KakaocertService.GetIdentityStatus(clientCode, receiptID)
+	Dim result : Set result = m_PasscertService.GetIdentityStatus(clientCode, receiptID)
 
 	If Err.Number <> 0 Then
 		Dim code : code = Err.Number
@@ -36,9 +36,7 @@
 			<br/>
 			<fieldset class="fieldset1">
 				<legend>패스 본인인증 상태확인</legend>
-				<% 
-					If code = 0 Then 
-				%>
+				<% If code = 0 Then %>
 					<ul>
 						<li>이용기관 코드 (ClientCode) : <%=result.clientCode %></li>
 						<li>접수아이디 (ReceiptID) : <%=result.receiptID %></li>
@@ -60,16 +58,12 @@
 						<li>앱스킴 (Scheme) : <%=result.scheme %></li>
 						<li>앱사용유무 (AppUseYN) : <%=result.appUseYN %></li>
 					</ul>	
-					<%	
-						Else
-					%>
-						<ul>
-							<li>Response.code: <%=code%> </li>
-							<li>Response.message: <%=message%> </li>
-						</ul>	
-					<%	
-						End If
-					%>
+				<% Else %>
+					<ul>
+						<li>Response.code: <%=code%> </li>
+						<li>Response.message: <%=message%> </li>
+					</ul>	
+				<% End If %>
 			</fieldset>
 		</div>
 	</body>

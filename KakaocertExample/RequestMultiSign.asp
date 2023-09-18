@@ -18,11 +18,11 @@
     ' 전자서명 요청 정보 객체
     Dim reqMultiSign : Set reqMultiSign = new MultiSign
     ' 수신자 휴대폰번호 - 11자 (하이픈 제외)
-    reqMultiSign.ReceiverHP = m_KakaocertService.encrypt("01067668440")
+    reqMultiSign.ReceiverHP = m_KakaocertService.encrypt("01012341234")
     ' 수신자 성명 - 80자
-    reqMultiSign.ReceiverName = m_KakaocertService.encrypt("정우석")
+    reqMultiSign.ReceiverName = m_KakaocertService.encrypt("홍길동")
     ' 수신자 생년월일 - 8자 (yyyyMMdd)
-    reqMultiSign.ReceiverBirthday = m_KakaocertService.encrypt("19900911")
+    reqMultiSign.ReceiverBirthday = m_KakaocertService.encrypt("19700101")
     ' 인증요청 메시지 제목 - 최대 40자
     reqMultiSign.ReqTitle = "전자서명복수테스트"
     ' 인증요청 만료시간 - 최대 1,000(초)까지 입력 가능

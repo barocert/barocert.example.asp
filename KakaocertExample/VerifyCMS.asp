@@ -18,7 +18,7 @@
 	Dim clientCode : clientCode = "023040000001"
 
 	' 자동이체 출금동의 요청시 반환된 접수아이디
-	Dim receiptID : receiptID = "02307040230400000010000000000001"
+	Dim receiptID : receiptID = "02309180230400000010000000000007"
 
 	On Error Resume Next
 
@@ -46,12 +46,12 @@
 						<li>전자서명 데이터 전문 (SignedData) : <%=result.signedData %></li>
 						<li>연계정보 (Ci) : <%=result.ci %></li>
 					</ul>
-				<%	Else  %>
+				<% Else %>
 					<ul>
 						<li>Response.code: <%=code%> </li>
 						<li>Response.message: <%=message%> </li>
 					</ul>	
-				<%	End If	%>
+				<% End If %>
 			</fieldset>
 		</div>
 	</body>

@@ -18,11 +18,11 @@
     ' 본인인증 요청 정보 객체
     Dim reqIdentity : Set reqIdentity = new Identity
     ' 수신자 휴대폰번호 - 11자 (하이픈 제외)
-    reqIdentity.ReceiverHP = m_KakaocertService.encrypt("01067668440")
+    reqIdentity.ReceiverHP = m_KakaocertService.encrypt("01012341234")
     ' 수신자 성명 - 80자
-    reqIdentity.ReceiverName = m_KakaocertService.encrypt("정우석")
+    reqIdentity.ReceiverName = m_KakaocertService.encrypt("홍길동")
     ' 수신자 생년월일 - 8자 (yyyyMMdd)
-    reqIdentity.ReceiverBirthday = m_KakaocertService.encrypt("19900911")
+    reqIdentity.ReceiverBirthday = m_KakaocertService.encrypt("19700101")
     ' 인증요청 메시지 제목 - 최대 40자
     reqIdentity.ReqTitle = "인증요청 메시지 제목란"
     ' 인증요청 만료시간 - 최대 1,000(초)까지 입력 가능

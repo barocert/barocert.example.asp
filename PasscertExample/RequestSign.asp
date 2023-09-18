@@ -18,11 +18,11 @@
     ' 전자서명 요청 정보 객체
     Dim reqSign : Set reqSign = new Sign
     ' 수신자 휴대폰번호 - 11자 (하이픈 제외)
-    reqSign.ReceiverHP = m_PasscertService.encrypt("01067668440")
+    reqSign.ReceiverHP = m_PasscertService.encrypt("01012341234")
     ' 수신자 성명 - 80자
-    reqSign.ReceiverName = m_PasscertService.encrypt("정우석")
+    reqSign.ReceiverName = m_PasscertService.encrypt("홍길동")
     ' 수신자 생년월일 - 8자 (yyyyMMdd)
-    reqSign.ReceiverBirthday = m_PasscertService.encrypt("19900911")
+    reqSign.ReceiverBirthday = m_PasscertService.encrypt("19700101")
     ' 요청 메시지 제목 - 최대 40자
     reqSign.ReqTitle = "전자서명 메시지 제목란"
     ' 요청 메시지 - 최대 500자
@@ -36,28 +36,28 @@
     ' 서명 원문 유형
     ' 'TEXT' - 일반 텍스트, 'HASH' - HASH 데이터, 'URL' - URL 데이터
     ' 원본데이터(originalTypeCode, originalURL, originalFormatCode) 입력시 'TEXT'사용 불가
-    reqSign.tokenType = 'URL',
+    reqSign.tokenType = "URL"
     ' 사용자 동의 필요 여부
     reqSign.UserAgreementYN = true
     ' 사용자 정보 포함 여부
     reqSign.ReceiverInfoYN = true
     ' 원본유형코드
     ' 'AG' - 동의서, 'AP' - 신청서, 'CT' - 계약서, 'GD' - 안내서, 'NT' - 통지서, 'TR' - 약관
-    reqSign.originalTypeCode = 'TR'
+    reqSign.originalTypeCode = "TR"
     ' 원본조회URL
-    reqSign.originalURL = 'https://www.passcert.co.kr'
+    reqSign.originalURL = "https://www.passcert.co.kr"
     ' 원본형태코드
     ' ('TEXT', 'HTML', 'DOWNLOAD_IMAGE', 'DOWNLOAD_DOCUMENT')
-    reqSign.originalFormatCode = 'HTML'
+    reqSign.originalFormatCode = "HTML"
     ' AppToApp 요청 여부
     ' true - AppToApp 인증방식, false - Push 인증방식
     reqSign.AppUseYN = false
     ' ApptoApp 인증방식에서 사용
     ' 통신사 유형('SKT', 'KT', 'LGU'), 대문자 입력(대소문자 구분)
-    ' reqSign.TelcoType = 'SKT'
+    ' reqSign.TelcoType = "SKT"
     ' ApptoApp 인증방식에서 사용
     ' 모바일장비 유형('ANDROID', 'IOS'), 대문자 입력(대소문자 구분)
-    ' reqSign.DeviceOSType = 'IOS'
+    ' reqSign.DeviceOSType = "IOS"
 
     On Error Resume Next
 

@@ -18,17 +18,17 @@
 	Dim clientCode : clientCode = "023040000001"	
 
 	' 간편로그인 요청시 반환된 접수아이디
-	Dim receiptID : receiptID = "02307040230400000010000000000027"
+	Dim receiptID : receiptID = "02309180230700000140000000000005"
 
 	Dim verifyLogin : Set verifyLogin = New LoginVerify
 
-	verifyLogin.receiverHP = m_PasscertService.encrypt("01067668440")
+	verifyLogin.receiverHP = m_PasscertService.encrypt("01012341234")
 	
-	verifyLogin.receiverName = m_PasscertService.encrypt("정우석")
+	verifyLogin.receiverName = m_PasscertService.encrypt("홍길동")
 
 	On Error Resume Next
 
-		Dim result : Set result = m_KakaocertService.VerifyLogin(clientCode, receiptID, verifyLogin)
+		Dim result : Set result = m_PasscertService.VerifyLogin(clientCode, receiptID, verifyLogin)
 
 		If Err.Number <> 0 then
 			Dim code : code = Err.Number
@@ -58,12 +58,12 @@
 						<li>전자서명 데이터 전문 (SignedData) : <%=result.signedData %></li>
 						<li>연계정보 (Ci) : <%=result.ci %></li>
 					</ul>
-				<%	Else  %>
+				<% Else %>
 					<ul>
 						<li>Response.code: <%=code%> </li>
 						<li>Response.message: <%=message%> </li>
 					</ul>	
-				<%	End If	%>
+				<% End If %>
 			</fieldset>
 		</div>
 	</body>

@@ -18,11 +18,11 @@
     ' 간편로그인 요청 정보 객체
     Dim reqLogin : Set reqLogin = new Login
     ' 수신자 휴대폰번호 - 11자 (하이픈 제외)
-    reqLogin.ReceiverHP = m_PasscertService.encrypt("01067668440")
+    reqLogin.ReceiverHP = m_PasscertService.encrypt("01012341234")
     ' 수신자 성명 - 80자
-    reqLogin.ReceiverName = m_PasscertService.encrypt("정우석")
+    reqLogin.ReceiverName = m_PasscertService.encrypt("홍길동")
     ' 수신자 생년월일 - 8자 (yyyyMMdd)
-    reqLogin.ReceiverBirthday = m_PasscertService.encrypt("19900911")
+    reqLogin.ReceiverBirthday = m_PasscertService.encrypt("19700101")
     ' 요청 메시지 제목 - 최대 40자
     reqLogin.ReqTitle = "간편로그인 메시지 제목란"
     ' 요청 메시지 - 최대 500자
@@ -39,13 +39,13 @@
     reqLogin.ReceiverInfoYN = true
     ' AppToApp 요청 여부
     ' true - AppToApp 인증방식, false - Push 인증방식
-    reqCms.AppUseYN = false
+    reqLogin.AppUseYN = false
     ' ApptoApp 인증방식에서 사용
     ' 통신사 유형('SKT', 'KT', 'LGU'), 대문자 입력(대소문자 구분)
-    ' reqCms.TelcoType = 'SKT'
+    ' reqLogin.TelcoType = "SKT"
     ' ApptoApp 인증방식에서 사용
     ' 모바일장비 유형('ANDROID', 'IOS'), 대문자 입력(대소문자 구분)
-    ' reqCms.DeviceOSType = 'IOS'
+    ' reqLogin.DeviceOSType = "IOS"
 
     On Error Resume Next
 

@@ -18,11 +18,11 @@
     ' 출금동의 요청 정보 객체
     Dim reqCms : Set reqCms = New CMS
     ' 수신자 휴대폰번호 - 11자 (하이픈 제외)
-    reqCms.ReceiverHP = m_KakaocertService.encrypt("01067668440")
+    reqCms.ReceiverHP = m_KakaocertService.encrypt("01012341234")
     ' 수신자 성명 - 80자
-    reqCms.ReceiverName = m_KakaocertService.encrypt("정우석")
+    reqCms.ReceiverName = m_KakaocertService.encrypt("홍길동")
     ' 수신자 생년월일 - 8자 (yyyyMMdd)
-    reqCms.ReceiverBirthday = m_KakaocertService.encrypt("19900911")
+    reqCms.ReceiverBirthday = m_KakaocertService.encrypt("19700101")
     ' 인증요청 메시지 제목 - 최대 40자
     reqCms.ReqTitle = "인증요청 메시지 제공란"
     ' 인증요청 만료시간 - 최대 1,000(초)까지 입력 가능
@@ -70,12 +70,12 @@
             <li>접수아이디 (ReceiptID) : <%=result.receiptID %></li>
             <li>앱스킴 (scheme) : <%=result.scheme %></li>
         </ul>
-    <%    Else  %>
+    <% Else %>
         <ul>
             <li>Response.code: <%=code%> </li>
             <li>Response.message: <%=message%> </li>
         </ul>    
-    <%    End If    %>
+    <% End If %>
     </fieldset>
     </div>
     </body>
