@@ -10,9 +10,10 @@ Class KakaocertService
 		m_BarocertBase.AddScope("402")
 		m_BarocertBase.AddScope("403")
 		m_BarocertBase.AddScope("404")
+		m_BarocertBase.AddScope("405")
 	End Sub
 
-    Public Sub Initialize(linkID, SecretKey )
+    Public Sub Initialize(linkID, SecretKey)
         m_BarocertBase.Initialize linkID,SecretKey
     End Sub
 
@@ -226,6 +227,23 @@ Class KakaocertService
 
 		infoTmp.fromJsonInfo result
 		Set VerifyCMS = infoTmp
+	End Function 
+
+	Public Function VerifyLogin(ClientCode, txID)
+
+		If ClientCode = "" Then
+			Err.Raise -99999999, "KAKAOCERT", "이용기관코드가 입력되지 않았습니다."
+		End If
+
+		If txID = "" Then
+			Err.Raise -99999999, "KAKAOCERT", "트랜잭션 아이디가 입력되지 않았습니다."
+		End If
+
+		Dim infoTmp : Set infoTmp = New LoginResult
+		Dim result : Set result = m_BarocertBase.httpPOST("/KAKAO/Login/" + ClientCode + "/" + txID, m_BarocertBase.getSession_token(), "")
+
+		infoTmp.fromJsonInfo result
+		Set VerifyLogin = infoTmp
 	End Function 
 
 	Public Function encrypt(PlainText)
@@ -868,6 +886,30 @@ Class CMSResult
 		On Error Resume Next
 			If Not isEmpty(jsonInfo.receiptID) Then
 				receiptID = jsonInfo.receiptID
+			End If
+			If Not isEmpty(jsonInfo.state) Then
+				state = jsonInfo.state
+			End If
+			If Not isEmpty(jsonInfo.signedData) Then
+				signedData = jsonInfo.signedData
+			End If
+			If Not isEmpty(jsonInfo.ci) Then
+				ci = jsonInfo.ci
+			End If
+		On Error GoTo 0
+	End Sub
+End Class
+
+Class LoginResult
+	Public txID
+	Public state
+	Public signedData
+	Public ci
+
+	Public Sub fromJsonInfo(jsonInfo)
+		On Error Resume Next
+			If Not isEmpty(jsonInfo.txID) Then
+				txID = jsonInfo.txID
 			End If
 			If Not isEmpty(jsonInfo.state) Then
 				state = jsonInfo.state

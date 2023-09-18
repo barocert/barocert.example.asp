@@ -8,15 +8,16 @@
 
 <%
 	'**************************************************************
-	' 전자서명 요청시 반환된 접수아이디를 통해 서명을 검증합니다. (단건)
-	' 검증하기 API는 완료된 전자서명 요청당 1회만 요청 가능하며, 사용자가 서명을 완료후 유효시간(10분)이내에만 요청가능 합니다.
-	' https://developers.barocert.com/reference/kakao/java/sign/api-multi#VerifyMultiSign
+	' 완료된 전자서명을 검증하고 전자서명값(signedData)을 반환 받습니다.
+	' 카카오 보안정책에 따라 검증 API는 1회만 호출할 수 있습니다. 재시도시 오류가 반환됩니다.
+	' 전자서명 완료일시로부터 10분 이후에 검증 API를 호출하면 오류가 반환됩니다.
+	' https://developers.barocert.com/reference/kakao/asp/sign/api-multi#VerifyMultiSign
 	'**************************************************************
 
 	' 이용기관코드, 파트너가 등록한 이용기관의 코드 (파트너 사이트에서 확인가능)
 	Dim clientCode : clientCode = "023040000001"	
 
-	' 전자서명 요청시 반환된 접수아이디
+	' 전자서명(복수) 요청시 반환된 접수아이디
 	Dim receiptID : receiptID = "02307040230400000010000000000027"
 
 	On Error Resume Next
@@ -37,10 +38,10 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>카카오 전자서명 검증(복수)</legend>
+				<legend>카카오 전자서명(복수) 검증</legend>
 				<% If code = 0 Then %>
 					<ul>
-						<li>접수 아이디 (ReceiptID) : <%=result.receiptID %></li>
+						<li>접수아이디 (ReceiptID) : <%=result.receiptID %></li>
 						<li>상태 (State) : <%=result.state %></li>
 						<li>연계정보 (Ci) : <%=result.ci %></li>
 					</ul>

@@ -7,7 +7,7 @@ Const ServiceID = "BAROCERT"
 Const ServiceURL = "https://barocert.linkhub.co.kr"
 Const ServiceURL_Static = "https://static-barocert.linkhub.co.kr"
 
-Const APIVersion = "2.0"
+Const APIVersion = "2.1"
 Const adTypeBinary = 1
 Const adTypeText = 2
 
@@ -155,11 +155,11 @@ Class BarocertBase
 	
 
 		Dim target : target = "POST" + Chr(10)
-		target = target + url + Chr(10)
 		If postdata <> "" Then
 			target = target + m_Linkhub.b64_sha256(postData) + Chr(10)
 		End If	
 		target = target + xDate + Chr(10)
+		target = target + url + Chr(10)
 		
 		Dim auth_target : auth_target =  m_Linkhub.b64_hmac_sha256(m_Linkhub.SecretKey, target)
 

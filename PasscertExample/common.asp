@@ -1,8 +1,8 @@
 <!--#include virtual="Barocert/Barocert.asp"-->
-<!--#include virtual="Barocert/Kakaocert.asp"-->
+<!--#include virtual="Barocert/Passcert.asp"-->
 <%
 	'**************************************************************
-	' Kakaocert API ASP SDK Example
+	' Passcert API ASP SDK Example
 	'
 	' - 업데이트 일자 : 2023-09-18
 	' - 연동 기술지원 연락처 : 1600-9854
@@ -18,17 +18,17 @@
 	' 비밀키
 	Dim SecretKey : SecretKey = "SwWxqU+0TErBXy/9TVjIPEnI0VTUMMSQZtJf3Ed8q3I="
 	
-	Dim m_KakaocertService : set m_KakaocertService = New KakaocertService
+	Dim m_PasscertService : set m_PasscertService = New PasscertService
 	
-	' Kakaocert API 서비스 모듈 초기화
-	m_KakaocertService.Initialize LinkID, SecretKey
+	' Passcert API 서비스 모듈 초기화
+	m_PasscertService.Initialize LinkID, SecretKey
 
-	' 인증토큰 IP제한기능 사용여부, 권장(True)
-	m_KakaocertService.IPRestrictOnOff = True
+	' 인증토큰 IP제한기능 사용여부, True-사용, False-미사용, 기본값(True)
+	m_PasscertService.IPRestrictOnOff = True
 
-	' 카카오써트 API 서비스 고정 IP 사용여부, True-사용, False-미사용, 기본값(False)
-	m_KakaocertService.useStaticIP = False
+	' 패스써트 API 서비스 고정 IP 사용여부, True-사용, False-미사용, 기본값(False)
+	m_PasscertService.useStaticIP = False
 	
-	' 로컬시스템 시간 사용여부 True-사용, False-미사용, 기본값(True)
-	m_KakaocertService.UseLocalTimeYN = True
+	' 로컬시스템 시간 사용여부, True-사용, False-미사용, 기본값(True)
+	m_PasscertService.UseLocalTimeYN = True
 %>

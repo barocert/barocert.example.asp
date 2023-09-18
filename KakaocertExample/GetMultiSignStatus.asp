@@ -7,8 +7,8 @@
 <!--#include file="common.asp"--> 
 <%
 	'**************************************************************
-	' 전자서명 요청시 반환된 접수아이디를 통해 서명 상태를 확인합니다. (복수)
-	' https://developers.barocert.com/reference/kakao/java/sign/api-multi#GetMultiSignStatus
+	' 전자서명(복수) 요청 후 반환받은 접수아이디로 인증 진행 상태를 확인합니다.
+	' https://developers.barocert.com/reference/kakao/asp/sign/api-multi#GetMultiSignStatus
 	'**************************************************************
 
 	' 이용기관코드, 파트너가 등록한 이용기관의 코드 (파트너 사이트에서 확인가능)
@@ -33,12 +33,12 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>카카오 전자서명 상태확인(복수)</legend>
+				<legend>카카오 전자서명(복수) 상태확인</legend>
 				<% 
 					If code = 0 Then 
 				%>
 					<ul>
-						<li>접수 아이디 (ReceiptID) : <%=result.receiptID %></li>
+						<li>접수아이디 (ReceiptID) : <%=result.receiptID %></li>
 						<li>이용기관 코드 (ClientCode) : <%=result.clientCode %></li>
 						<li>상태 (State) : <%=result.state %></li>
 						<li>요청 만료시간 (ExpireIn) : <%=result.expireIn %></li>

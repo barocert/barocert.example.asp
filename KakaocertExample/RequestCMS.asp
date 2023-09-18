@@ -8,8 +8,8 @@
 
 <%
     '**************************************************************
-    ' 카카오톡 사용자에게 출금동의 전자서명을 요청합니다.
-    ' https://developers.barocert.com/reference/kakao/java/cms/api#RequestCMS
+    ' 카카오톡 이용자에게 자동이체 출금동의를 요청합니다.
+    ' https://developers.barocert.com/reference/kakao/asp/cms/api#RequestCMS
     '**************************************************************
 
     ' 이용기관코드, 파트너가 등록한 이용기관의 코드 (파트너 사이트에서 확인가능)
@@ -18,11 +18,11 @@
     ' 출금동의 요청 정보 객체
     Dim reqCms : Set reqCms = New CMS
     ' 수신자 휴대폰번호 - 11자 (하이픈 제외)
-    reqCms.ReceiverHP = m_KakaocertService.encrypt("01012341234")
+    reqCms.ReceiverHP = m_KakaocertService.encrypt("01067668440")
     ' 수신자 성명 - 80자
-    reqCms.ReceiverName = m_KakaocertService.encrypt("홍길동")
+    reqCms.ReceiverName = m_KakaocertService.encrypt("정우석")
     ' 수신자 생년월일 - 8자 (yyyyMMdd)
-    reqCms.ReceiverBirthday = m_KakaocertService.encrypt("19700101")
+    reqCms.ReceiverBirthday = m_KakaocertService.encrypt("19900911")
     ' 인증요청 메시지 제목 - 최대 40자
     reqCms.ReqTitle = "인증요청 메시지 제공란"
     ' 인증요청 만료시간 - 최대 1,000(초)까지 입력 가능
@@ -66,15 +66,15 @@
     <fieldset class="fieldset1">
     <legend>카카오 출금동의 요청</legend>
     <% If code = 0 Then %>
-    <ul>
-    <li>접수아이디 (ReceiptID) : <%=result.receiptID %></li>
-    <li>앱스킴 (scheme) : <%=result.scheme %></li>
-    </ul>
+        <ul>
+            <li>접수아이디 (ReceiptID) : <%=result.receiptID %></li>
+            <li>앱스킴 (scheme) : <%=result.scheme %></li>
+        </ul>
     <%    Else  %>
-    <ul>
-    <li>Response.code: <%=code%> </li>
-    <li>Response.message: <%=message%> </li>
-    </ul>    
+        <ul>
+            <li>Response.code: <%=code%> </li>
+            <li>Response.message: <%=message%> </li>
+        </ul>    
     <%    End If    %>
     </fieldset>
     </div>
