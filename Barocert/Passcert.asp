@@ -32,6 +32,14 @@ Class PasscertService
 		m_BarocertBase.UseLocalTimeYN = value
 	End Property
 
+	Public Property Let ServiceURL(ByVal value)
+		m_BarocertBase.ServiceURL = value
+	End Property
+	
+	Public Property Let AuthURL(ByVal value)
+		m_BarocertBase.AuthURL = value
+	End Property
+
 	public Function toString(object)
 		toString = m_BarocertBase.toString(object)
 	End Function

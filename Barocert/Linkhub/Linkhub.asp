@@ -12,6 +12,7 @@ class Linkhub
 Private m_linkID
 Private m_secretKey
 Private m_sha1
+Private m_AuthURL
 
 Public Property Let LinkID(ByVal value)
     m_linkID = value
@@ -27,6 +28,10 @@ End Property
 
 Public Property Get SecretKey()
     SecretKey = m_secretKey
+End Property
+
+Public Property Let AuthURL(ByVal value)
+    m_AuthURL = value
 End Property
 
 Public Function b64md5(postData)
@@ -58,12 +63,20 @@ Public Sub Class_Terminate
 End Sub 
 
 Private Function getTargetURL(useStaticIP, useGAIP)
-    If useGAIP Then
-        getTargetURL = linkhub_ServiceURL_GA
-    ElseIf useStaticIP Then
-        getTargetURL = linkhub_ServiceURL_Static
+    If IsNull(m_AuthURL) Then
+        If useGAIP Then
+            getTargetURL = linkhub_ServiceURL_GA
+        ElseIf useStaticIP Then
+            getTargetURL = linkhub_ServiceURL_Static
+        Else
+            getTargetURL = linkhub_ServiceURL
+        End If
     Else
-        getTargetURL = linkhub_ServiceURL
+        If InStr(m_AuthURL, "https://") = 0 and InStr(m_AuthURL, "http://") = 0 Then
+            Err.raise -99999999, "BAROCERT", "AuthURL에 전송 프로토콜(HTTP 또는 HTTPS)을 포함하여 주시기 바랍니다."
+		Else
+            getTargetURL = m_AuthURL
+        End If
     End If
 End Function
 

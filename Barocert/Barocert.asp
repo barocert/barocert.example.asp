@@ -19,6 +19,7 @@ Class BarocertBase
 	Private m_IPRestrictOnOff
 	Private m_useStaticIP
 	Private m_UseLocalTimeYN
+	Private m_ServiceURL
 
 	Public Property Let IPRestrictOnOff(ByVal value)
 		m_IPRestrictOnOff = value
@@ -28,6 +29,12 @@ Class BarocertBase
 	End Property
 	Public Property Let UseLocalTimeYN(ByVal value)
 		m_UseLocalTimeYN = value
+	End Property
+	Public Property Let ServiceURL(ByVal value)
+		m_ServiceURL = value
+	End Property
+	Public Property Let AuthURL(ByVal value)
+		m_Linkhub.AuthURL = value
 	End Property
 
 	Public Sub Class_Initialize
@@ -71,10 +78,18 @@ Class BarocertBase
 	End Sub
 
 	Private Function getTargetURL() 
-		If m_UseStaticIP Then
-			getTargetURL = ServiceURL_Static
+		If IsNull(m_ServiceURL) Then
+			If m_UseStaticIP Then
+				getTargetURL = ServiceURL_Static
+			Else
+				getTargetURL = ServiceURL
+			End If
 		Else
-			getTargetURL = ServiceURL
+			If InStr(m_ServiceURL, "https://") = 0 and InStr(m_ServiceURL, "http://") = 0 Then
+				Err.raise -99999999, "BAROCERT", "ServiceURL에 전송 프로토콜(HTTP 또는 HTTPS)을 포함하여 주시기 바랍니다."
+			Else
+				getTargetURL = m_ServiceURL
+			End if
 		End If
 	End Function
 
