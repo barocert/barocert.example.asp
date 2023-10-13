@@ -63,7 +63,7 @@ Public Sub Class_Terminate
 End Sub 
 
 Private Function getTargetURL(useStaticIP, useGAIP)
-    If IsNull(m_AuthURL) Then
+    If IsNull(m_AuthURL) or m_AuthURL = "" Then
         If useGAIP Then
             getTargetURL = linkhub_ServiceURL_GA
         ElseIf useStaticIP Then

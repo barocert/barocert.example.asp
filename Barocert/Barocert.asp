@@ -78,7 +78,7 @@ Class BarocertBase
 	End Sub
 
 	Private Function getTargetURL() 
-		If IsNull(m_ServiceURL) Then
+		If IsNull(m_ServiceURL) or m_ServiceURL = "" Then
 			If m_UseStaticIP Then
 				getTargetURL = ServiceURL_Static
 			Else
