@@ -24,15 +24,15 @@
     ' 수신자 생년월일 - 8자 (yyyyMMdd)
     reqSign.ReceiverBirthday = m_PasscertService.encrypt("19700101")
     ' 요청 메시지 제목 - 최대 40자
-    reqSign.ReqTitle = "전자서명 메시지 제목란"
+    reqSign.ReqTitle = "전자서명 요청 메시지 제목"
     ' 요청 메시지 - 최대 500자
-    reqSign.ReqMessage = m_PasscertService.encrypt("전자서명 요청 메시지 내용")
+    reqSign.ReqMessage = m_PasscertService.encrypt("전자서명 요청 메시지")
     ' 고객센터 연락처 - 최대 12자
     reqSign.CallCenterNum = "1600-9854"
     ' 요청 만료시간 - 최대 1,000(초)까지 입력 가능
     reqSign.ExpireIn = 1000
     ' 서명 원문 - 원문 2,800자 까지 입력가능 
-    reqSign.Token = m_PasscertService.encrypt("전자서명 요청 토큰")
+    reqSign.Token = m_PasscertService.encrypt("전자서명 요청 원문")
     ' 서명 원문 유형
     ' 'TEXT' - 일반 텍스트, 'HASH' - HASH 데이터, 'URL' - URL 데이터
     ' 원본데이터(originalTypeCode, originalURL, originalFormatCode) 입력시 'TEXT'사용 불가
@@ -80,7 +80,7 @@
                 <legend>패스 전자서명 요청</legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>접수아이디 (ReceiptID) : <%=result.receiptId %></li>
+                        <li>접수아이디 (ReceiptID) : <%=result.receiptID %></li>
                         <li>앱스킴 (scheme) : <%=result.scheme %></li>
                         <li>앱다운로드URL (MarketUrl) : <%=result.marketUrl %></li>
                     </ul>

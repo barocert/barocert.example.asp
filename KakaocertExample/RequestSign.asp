@@ -24,11 +24,11 @@
     ' 수신자 생년월일 - 8자 (yyyyMMdd)
     reqSign.ReceiverBirthday = m_KakaocertService.encrypt("19700101")
     ' 인증요청 메시지 제목 - 최대 40자
-    reqSign.ReqTitle = "전자서명단건테스트"
+    reqSign.ReqTitle = "전자서명(단건) 요청 메시지 제목"
     ' 인증요청 만료시간 - 최대 1,000(초)까지 입력 가능
     reqSign.ExpireIn = 1000
     ' 서명 원문 - 원문 2,800자 까지 입력가능
-    reqSign.Token = m_KakaocertService.encrypt("전자서명단건테스트데이터")
+    reqSign.Token = m_KakaocertService.encrypt("전자서명(단건) 요청 원문")
     ' 서명 원문 유형
     ' TEXT - 일반 텍스트, HASH - HASH 데이터
     reqSign.TokenType = "TEXT"
@@ -59,7 +59,7 @@
                 <legend>카카오 전자서명(단건) 요청</legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>접수아이디 (ReceiptID) : <%=result.receiptId %></li>
+                        <li>접수아이디 (ReceiptID) : <%=result.receiptID %></li>
                         <li>앱스킴 (scheme) : <%=result.scheme %></li>
                     </ul>
                 <% Else %>

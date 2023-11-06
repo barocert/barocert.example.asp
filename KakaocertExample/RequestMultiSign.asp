@@ -24,7 +24,7 @@
     ' 수신자 생년월일 - 8자 (yyyyMMdd)
     reqMultiSign.ReceiverBirthday = m_KakaocertService.encrypt("19700101")
     ' 인증요청 메시지 제목 - 최대 40자
-    reqMultiSign.ReqTitle = "전자서명복수테스트"
+    reqMultiSign.ReqTitle = "전자서명(복수) 요청 메시지 제목"
     ' 인증요청 만료시간 - 최대 1,000(초)까지 입력 가능
     reqMultiSign.ExpireIn = 1000
 
@@ -33,9 +33,9 @@
     For i=0 To 2
         Set token = New MultiSignTokens
         ' 인증요청 메시지 제목 - 최대 40자
-        token.ReqTitle = "전자서명복수문서테스트1"
+        token.ReqTitle = "전자서명(복수) 요청 메시지 제목 " + CStr(i)
         ' 서명 원문 - 원문 2,800자 까지 입력가능
-        token.Token = m_KakaocertService.encrypt("전자서명복수테스트데이터"+CStr(i))
+        token.Token = m_KakaocertService.encrypt("전자서명(복수) 요청 원문 "+CStr(i))
         reqMultiSign.addToken i, token
     Next
 

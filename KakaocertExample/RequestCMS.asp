@@ -24,7 +24,7 @@
     ' 수신자 생년월일 - 8자 (yyyyMMdd)
     reqCms.ReceiverBirthday = m_KakaocertService.encrypt("19700101")
     ' 인증요청 메시지 제목 - 최대 40자
-    reqCms.ReqTitle = "인증요청 메시지 제공란"
+    reqCms.ReqTitle = "출금동의 요청 메시지 제목"
     ' 인증요청 만료시간 - 최대 1,000(초)까지 입력 가능
     reqCms.ExpireIn = 1000
     ' 청구기관명 - 최대 100자

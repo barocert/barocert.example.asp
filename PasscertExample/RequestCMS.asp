@@ -24,9 +24,9 @@
     ' 수신자 생년월일 - 8자 (yyyyMMdd)
     reqCms.ReceiverBirthday = m_PasscertService.encrypt("19700101")
     ' 요청 메시지 제목 - 최대 40자
-    reqCms.ReqTitle = "출금동의 메시지 제목란"
+    reqCms.ReqTitle = "출금동의 요청 메시지 제목"
     ' 요청 메시지 - 최대 500자
-    reqCms.ReqMessage = m_PasscertService.encrypt("출금동의 요청 메시지 내용")
+    reqCms.ReqMessage = m_PasscertService.encrypt("출금동의 요청 메시지")
     ' 고객센터 연락처 - 최대 12자
     reqCms.CallCenterNum = "1600-9854"
     ' 요청 만료시간 - 최대 1,000(초)까지 입력 가능
@@ -77,7 +77,7 @@
                 <legend>패스 출금동의 요청</legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>접수아이디 (ReceiptID) : <%=result.receiptId %></li>
+                        <li>접수아이디 (ReceiptID) : <%=result.receiptID %></li>
                         <li>앱스킴 (scheme) : <%=result.scheme %></li>
                         <li>앱다운로드URL (MarketUrl) : <%=result.marketUrl %></li>
                     </ul>

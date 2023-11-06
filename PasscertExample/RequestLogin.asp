@@ -24,15 +24,15 @@
     ' 수신자 생년월일 - 8자 (yyyyMMdd)
     reqLogin.ReceiverBirthday = m_PasscertService.encrypt("19700101")
     ' 요청 메시지 제목 - 최대 40자
-    reqLogin.ReqTitle = "간편로그인 메시지 제목란"
+    reqLogin.ReqTitle = "간편로그인 요청 메시지 제목"
     ' 요청 메시지 - 최대 500자
-    reqLogin.ReqMessage = m_PasscertService.encrypt("간편로그인 요청 메시지 내용")
+    reqLogin.ReqMessage = m_PasscertService.encrypt("간편로그인 요청 메시지")
     ' 고객센터 연락처 - 최대 12자
     reqLogin.CallCenterNum = "1600-9854"
     ' 요청 만료시간 - 최대 1,000(초)까지 입력 가능
     reqLogin.ExpireIn = 1000
     ' 서명 원문 - 원문 2,800자 까지 입력가능 
-    reqLogin.Token = m_PasscertService.encrypt("간편로그인 요청 토큰")
+    reqLogin.Token = m_PasscertService.encrypt("간편로그인 요청 원문")
     ' 사용자 동의 필요 여부
     reqLogin.UserAgreementYN = true
     ' 사용자 정보 포함 여부
@@ -68,7 +68,7 @@
                 <legend>패스 간편로그인 요청</legend>
                 <% If code = 0 Then %>
                     <ul>
-                        <li>접수아이디 (ReceiptID) : <%=result.receiptId %></li>
+                        <li>접수아이디 (ReceiptID) : <%=result.receiptID %></li>
                         <li>앱스킴 (scheme) : <%=result.scheme %></li>
                         <li>앱다운로드URL (MarketUrl) : <%=result.marketUrl %></li>
                     </ul>

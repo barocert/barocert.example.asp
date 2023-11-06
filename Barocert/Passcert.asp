@@ -296,14 +296,14 @@ Class Identity
 End Class
 
 Class IdentityReceipt
-	Public receiptId
+	Public receiptID
 	Public scheme
 	Public marketUrl
 
 	Public Sub fromJsonInfo(jsonInfo)
 		On Error Resume Next
-			If Not isEmpty(jsonInfo.receiptId) Then
-				receiptId = jsonInfo.receiptId
+			If Not isEmpty(jsonInfo.receiptID) Then
+				receiptID = jsonInfo.receiptID
 			End If
 			If Not isEmpty(jsonInfo.scheme) Then
 				scheme = jsonInfo.scheme
