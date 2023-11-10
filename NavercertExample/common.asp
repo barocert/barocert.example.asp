@@ -1,8 +1,8 @@
 <!--#include virtual="Barocert/Barocert.asp"-->
-<!--#include virtual="Barocert/Passcert.asp"-->
+<!--#include virtual="Barocert/Navercert.asp"-->
 <%
 	'**************************************************************
-	' Passcert API ASP SDK Example
+	' Navercert API ASP SDK Example
 	'
 	' - 업데이트 일자 : 2023-11-09
 	' - 연동 기술지원 연락처 : 1600-9854
@@ -18,14 +18,14 @@
 	' 비밀키
 	Dim SecretKey : SecretKey = "SwWxqU+0TErBXy/9TVjIPEnI0VTUMMSQZtJf3Ed8q3I="
 	
-	Dim m_PasscertService : set m_PasscertService = New PasscertService
+	Dim m_NavercertService : set m_NavercertService = New NavercertService
 	
-	' Passcert API 서비스 모듈 초기화
-	m_PasscertService.Initialize LinkID, SecretKey
+	' Navercert API 서비스 모듈 초기화
+	m_NavercertService.Initialize LinkID, SecretKey
 
-	' 인증토큰 IP제한기능 사용여부, True-사용, False-미사용, 기본값(True)
-	m_PasscertService.IPRestrictOnOff = True
+	' 인증토큰 IP제한기능 사용여부, 권장(True)
+	m_NavercertService.IPRestrictOnOff = True
 
-	' 패스써트 API 서비스 고정 IP 사용여부, True-사용, False-미사용, 기본값(False)
-	m_PasscertService.useStaticIP = False
+	' 네이버써트 API 서비스 고정 IP 사용여부, True-사용, False-미사용, 기본값(False)
+	m_NavercertService.useStaticIP = False
 %>

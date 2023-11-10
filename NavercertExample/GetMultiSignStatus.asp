@@ -7,19 +7,19 @@
 <!--#include file="common.asp"--> 
 <%
 	'**************************************************************
-	' 전자서명(단건) 요청 후 반환받은 접수아이디로 인증 진행 상태를 확인합니다.
-	' https://developers.barocert.com/reference/kakao/asp/sign/api-single#GetSignStatus
+	' 전자서명(복수) 요청 후 반환받은 접수아이디로 인증 진행 상태를 확인합니다.
+	' https://developers.barocert.com/reference/naver/asp/sign/api-multi#GetMultiSignStatus
 	'**************************************************************
 
 	' 이용기관코드, 파트너가 등록한 이용기관의 코드 (파트너 사이트에서 확인가능)
-	Dim clientCode : clientCode = "023040000001"	
+	Dim clientCode : clientCode = "023090000021"	
 
 	' 전자서명 요청시 반환된 접수아이디
-	Dim receiptID : receiptID = "02309180230400000010000000000005"
+	Dim receiptID : receiptID = "02311090230900000210000000000011"
 	
 	On Error Resume Next
 
-	Dim result : Set result = m_KakaocertService.GetSignStatus(clientCode, receiptID)
+	Dim result : Set result = m_NavercertService.GetMultiSignStatus(clientCode, receiptID)
 
 	If Err.Number <> 0 Then
 		Dim code : code = Err.Number
@@ -33,7 +33,7 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>카카오 전자서명(단건) 상태확인</legend>
+				<legend>네이버 전자서명(복수) 상태확인</legend>
 				<% If code = 0 Then %>
 					<ul>
 						<li>접수아이디 (ReceiptID) : <%=result.receiptID %></li>
@@ -43,14 +43,16 @@
 						<li>이용기관 명 (CallCenterName) : <%=result.callCenterName %></li>
 						<li>이용기관 연락처 (CallCenterNum) : <%=result.callCenterNum %></li>
 						<li>인증요청 메시지 제목 (ReqTitle) : <%=result.reqTitle %></li>
-						<li>인증분류 (AuthCategory) : <%=result.authCategory %></li>
 						<li>복귀 URL (ReturnURL) : <%=result.returnURL %></li>
-						<li>원문 구분 (TokenType) : <%=result.tokenType %></li>
-						<li>서명요청일시 (RequestDT) : <%=result.requestDT %></li>
-						<li>서명조회일시 (ViewDT) : <%=result.viewDT %></li>
-						<li>서명완료일시 (CompleteDT) : <%=result.completeDT %></li>
+						<%
+							For i=0 To UBound(result.tokenTypes) -1
+						%>
+						<li>원문 유형 (tokenTypes) : <%=result.tokenTypes(i)%></li>
+						<%
+							Next
+						%>
 						<li>서명만료일시 (ExpireDT) : <%=result.expireDT %></li>
-						<li>서명검증일시 (VerifyDT) : <%=result.verifyDT %></li>
+						<li>모바일장비 운영체제 (DeviceOSType) : <%=result.deviceOSType %></li>
 						<li>앱스킴 (Scheme) : <%=result.scheme %></li>
 						<li>앱사용유무 (AppUseYN) : <%=result.appUseYN %></li>
 					</ul>	

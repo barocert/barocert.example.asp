@@ -20,12 +20,12 @@
 			<fieldset class="fieldset1">
 				<legend>Kakaocert 전자서명 API</legend>
 				<ul>
-					<li><a href="KakaocertExample/RequestSign.asp">RequestSign</a> - 전자서명 요청(단건)</li>
-					<li><a href="KakaocertExample/GetSignStatus.asp">GetSignStatus</a> - 전자서명 상태확인(단건)</li>
-					<li><a href="KakaocertExample/VerifySign.asp">VerifySign</a> - 전자서명 검증(단건)</li>
-					<li><a href="KakaocertExample/RequestMultiSign.asp">RequestMultiSign</a> - 전자서명 요청(다건)</li>
-					<li><a href="KakaocertExample/GetMultiSignStatus.asp">GetMultiSignStatus</a> - 전자서명 상태확인(다건)</li>
-					<li><a href="KakaocertExample/VerifyMultiSign.asp">VerifyMultiSign</a> - 전자서명 검증(다건)</li>
+					<li><a href="KakaocertExample/RequestSign.asp">RequestSign</a> - 전자서명(단건) 요청</li>
+					<li><a href="KakaocertExample/GetSignStatus.asp">GetSignStatus</a> - 전자서명(단건) 상태확인</li>
+					<li><a href="KakaocertExample/VerifySign.asp">VerifySign</a> - 전자서명(단건) 검증</li>
+					<li><a href="KakaocertExample/RequestMultiSign.asp">RequestMultiSign</a> - 전자서명(복수) 요청</li>
+					<li><a href="KakaocertExample/GetMultiSignStatus.asp">GetMultiSignStatus</a> - 전자서명(복수) 상태확인</li>
+					<li><a href="KakaocertExample/VerifyMultiSign.asp">VerifyMultiSign</a> - 전자서명(복수) 검증</li>
 				</ul>
 			</fieldset>
 		
@@ -42,6 +42,27 @@
 				<legend>Kakaocert 간편로그인 API</legend>
 				<ul>
 					<li><a href="KakaocertExample/VerifyLogin.asp">VerifyLogin</a> - 간편로그인 검증</li>
+				</ul>
+			</fieldset>
+
+			<fieldset class="fieldset1">
+				<legend>Navercert 본인인증 API</legend>
+				<ul>
+					<li><a href="NavercertExample/RequestIdentity.asp">RequestIdentity</a> - 본인인증 요청</li>
+					<li><a href="NavercertExample/GetIdentityStatus.asp">getIdentityStatus</a> - 본인인증 상태확인</li>
+					<li><a href="NavercertExample/VerifyIdentity.asp">VerifyIdentity</a> - 본인인증 검증</li>
+				</ul>
+			</fieldset>
+			
+			<fieldset class="fieldset1">
+				<legend>Navercert 전자서명 API</legend>
+				<ul>
+					<li><a href="NavercertExample/RequestSign.asp">RequestSign</a> - 전자서명(단건) 요청</li>
+					<li><a href="NavercertExample/GetSignStatus.asp">GetSignStatus</a> - 전자서명(단건) 상태확인</li>
+					<li><a href="NavercertExample/VerifySign.asp">VerifySign</a> - 전자서명(단건) 검증</li>
+					<li><a href="NavercertExample/RequestMultiSign.asp">RequestMultiSign</a> - 전자서명(복수) 요청</li>
+					<li><a href="NavercertExample/GetMultiSignStatus.asp">GetMultiSignStatus</a> - 전자서명(복수) 상태확인</li>
+					<li><a href="NavercertExample/VerifyMultiSign.asp">VerifyMultiSign</a> - 전자서명(복수) 검증</li>
 				</ul>
 			</fieldset>
 
