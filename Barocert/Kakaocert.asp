@@ -264,6 +264,7 @@ Class Identity
 	Public receiverName
 	Public receiverBirthday
 	Public reqTitle
+	Public extraMessage
 	Public expireIn
 	Public token
 	Public returnURL
@@ -275,6 +276,7 @@ Class Identity
 		toJsonInfo.Set "receiverName", receiverName
 		toJsonInfo.Set "receiverBirthday", receiverBirthday
 		toJsonInfo.Set "reqTitle", reqTitle
+		toJsonInfo.Set "extraMessage", extraMessage
 		toJsonInfo.Set "expireIn", expireIn
 		toJsonInfo.Set "token", token
 		toJsonInfo.Set "returnURL", returnURL
@@ -400,6 +402,8 @@ Class Sign
 	Public receiverName
 	Public receiverBirthday
 	Public reqTitle
+	Public signTitle
+	Public extraMessage
 	Public expireIn
 	Public token
     Public tokenType
@@ -412,6 +416,8 @@ Class Sign
 		toJsonInfo.Set "receiverName", receiverName
 		toJsonInfo.Set "receiverBirthday", receiverBirthday
 		toJsonInfo.Set "reqTitle", reqTitle
+		toJsonInfo.Set "signTitle", signTitle
+		toJsonInfo.Set "extraMessage", extraMessage
 		toJsonInfo.Set "expireIn", expireIn
 		toJsonInfo.Set "token", token
 		toJsonInfo.Set "tokenType", tokenType
@@ -536,12 +542,17 @@ End Class
 
 Class MultiSignTokens
 	Public reqTitle
+	Public signTitle
 	Public token
 
 	Public Sub setValue(multiSignToken)
 
 		If Not isEmpty(multiSignToken.reqTitle) Then
 			reqTitle = multiSignToken.reqTitle
+		End If
+		
+		If Not isEmpty(multiSignToken.signTitle) Then
+			signTitle = multiSignToken.signTitle
 		End If
 
 		If Not isEmpty(multiSignToken.token) Then
@@ -555,6 +566,9 @@ Class MultiSignTokens
 			If Not isEmpty(reqTitle) Then
 				toJsonInfo.set "reqTitle", reqTitle
 			End If
+			If Not isEmpty(signTitle) Then
+				toJsonInfo.set "signTitle", signTitle
+			End If
 			If Not isEmpty(token) Then
 				toJsonInfo.set "token", token
 			End If
@@ -564,6 +578,7 @@ Class MultiSignTokens
 	Public Function toJsonInfo()
 		Set toJsonInfo = JSON.parse("{}")
 		toJsonInfo.Set "reqTitle", reqTitle
+		toJsonInfo.Set "signTitle", signTitle
 		toJsonInfo.Set "token", token
 	End Function 
 End Class
@@ -573,6 +588,7 @@ Class MultiSign
 	Public receiverName
 	Public receiverBirthday
 	Public reqTitle
+	Public extraMessage
 	Public expireIn
 	Public tokens
 	Public tokenType
@@ -589,6 +605,7 @@ Class MultiSign
 		toJsonInfo.Set "receiverName", receiverName
 		toJsonInfo.Set "receiverBirthday", receiverBirthday
 		toJsonInfo.Set "reqTitle", reqTitle
+		toJsonInfo.Set "extraMessage", extraMessage
 		toJsonInfo.Set "expireIn", expireIn
 		Dim multiSignTokens : Set multiSignTokens = JSON.parse("[]")
 		Dim i
@@ -626,12 +643,17 @@ End Class
 
 Class MultiSignedData
 	Public reqTitle
+	Public signTitle
 	Public token
 
 	Public Sub setValue(multiSignToken)
 
 		If Not isEmpty(multiSignToken.reqTitle) Then
 			reqTitle = multiSignToken.reqTitle
+		End If
+		
+		If Not isEmpty(multiSignToken.signTitle) Then
+			signTitle = multiSignToken.signTitle
 		End If
 
 		If Not isEmpty(multiSignToken.token) Then
@@ -641,13 +663,16 @@ Class MultiSignedData
 
 	Public Sub fromJsonInfo(jsonInfo)
 		Set toJsonInfo = JSON.parse("{}")
-			On Error Resume Next
-				If Not isEmpty(jsonInfo.reqTitle) Then
-				reqTitle = jsonInfo.reqTitle
-			End If
-			If Not isEmpty(jsonInfo.token) Then
-				token = jsonInfo.token
-			End If
+		On Error Resume Next
+		If Not isEmpty(jsonInfo.reqTitle) Then
+			reqTitle = jsonInfo.reqTitle
+		End If
+		If Not isEmpty(jsonInfo.signTitle) Then
+			signTitle = jsonInfo.signTitle
+		End If
+		If Not isEmpty(jsonInfo.token) Then
+			token = jsonInfo.token
+		End If
 		On Error GoTo 0
 	End Sub
 End Class
@@ -767,6 +792,7 @@ Class CMS
 	public receiverName
 	public receiverBirthday
 	public reqTitle
+	public extraMessage
 	public expireIn
 	public returnURL
 	public requestCorp
@@ -783,6 +809,7 @@ Class CMS
 		toJsonInfo.Set "receiverName", receiverName
 		toJsonInfo.Set "receiverBirthday", receiverBirthday
 		toJsonInfo.Set "reqTitle", reqTitle
+		toJsonInfo.Set "extraMessage", extraMessage
 		toJsonInfo.Set "expireIn", expireIn
 		toJsonInfo.Set "returnURL", returnURL
 		toJsonInfo.Set "requestCorp", requestCorp 
