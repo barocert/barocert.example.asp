@@ -46,8 +46,8 @@ Public Function b64_sha256(postData)
     b64_sha256 = m_sha1.b64_sha256(postData)
 End Function
 
-Public Function b64_sha256_urlsafe_nopadding(postData)
-    b64_sha256_urlsafe_nopadding = m_sha1.b64_sha256_urlsafe_nopadding(postData)
+Public Function b64_sha256_urlsafe_nopadding(target)
+    b64_sha256_urlsafe_nopadding = m_sha1.b64_sha256_urlsafe_nopadding(target)
 End Function
 
 Public Function b64hmacsha1(secretkey, target)
@@ -77,7 +77,7 @@ Private Function getTargetURL(useStaticIP, useGAIP)
         End If
     Else
         If InStr(m_AuthURL, "https://") = 0 and InStr(m_AuthURL, "http://") = 0 Then
-            Err.raise -99999999, "BAROCERT", "AuthURL¿¡ Àü¼Û ÇÁ·ÎÅäÄÝ(HTTP ¶Ç´Â HTTPS)À» Æ÷ÇÔÇÏ¿© ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù."
+            Err.raise -99999999, "BAROCERT", "AuthURLï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(HTTP ï¿½Ç´ï¿½ HTTPS)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Ö½Ã±ï¿½ ï¿½Ù¶ï¿½ï¿½Ï´ï¿½."
 		Else
             getTargetURL = m_AuthURL
         End If
@@ -200,7 +200,7 @@ Public Function GetPartnerBalance(BearerToken, serviceID, useStaticIP)
 
 End Function
 
-' ÆÄÆ®³Ê Æ÷ÀÎÆ® ÃæÀü ÆË¾÷ URL - 2017/08/29 Ãß°¡
+' ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¾ï¿½ URL - 2017/08/29 ï¿½ß°ï¿½
 Public Function GetPartnerURL(BearerToken, serviceID, TOGO, useStaticIP)
 
     Dim winhttp1 : Set winhttp1 = CreateObject("WinHttp.WinHttpRequest.5.1")
