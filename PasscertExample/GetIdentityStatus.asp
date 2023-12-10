@@ -14,7 +14,7 @@
 	'**************************************************************
 
 	' 이용기관코드, 파트너가 등록한 이용기관의 코드 (파트너 사이트에서 확인가능)
-	Dim clientCode : clientCode = "023040000001"	
+	Dim clientCode : clientCode = "023070000014"	
 
 	' 본인인증 요청시 반환된 접수아이디
 	Dim receiptID : receiptID = "02309180230700000140000000000008"
@@ -42,21 +42,10 @@
 						<li>접수아이디 (ReceiptID) : <%=result.receiptID %></li>
 						<li>상태 (State) : <%=result.state %></li>
 						<li>요청 만료시간 (ExpireIn) : <%=result.expireIn %></li>
-						<li>이용기관 명 (CallCenterName) : <%=result.callCenterName %></li>
-						<li>이용기관 연락처 (CallCenterNum) : <%=result.callCenterNum %></li>
-						<li>인증요청 메시지 제목 (ReqTitle) : <%=result.reqTitle %></li>
-						<li>인증요청 메시지 (ReqMessage) : <%=result.reqMessage %></li>
 						<li>서명요청일시 (RequestDT) : <%=result.requestDT %></li>
 						<li>서명완료일시 (CompleteDT) : <%=result.completeDT %></li>
 						<li>서명만료일시 (ExpireDT) : <%=result.expireDT %></li>
 						<li>서명거절일시 (RejectDT) : <%=result.rejectDT %></li>
-						<li>원문 구분 (TokenType) : <%=result.tokenType %></li>
-						<li>사용자동의필요여부 (UserAgreementYN) : <%=result.userAgreementYN %></li>
-						<li>사용자정보포함여부 (ReceiverInfoYN) : <%=result.receiverInfoYN %></li>
-						<li>통신사 유형 (TelcoType) : <%=result.telcoType %></li>
-						<li>모바일장비 유형 (DeviceOSType) : <%=result.deviceOSType %></li>
-						<li>앱스킴 (Scheme) : <%=result.scheme %></li>
-						<li>앱사용유무 (AppUseYN) : <%=result.appUseYN %></li>
 					</ul>	
 				<% Else %>
 					<ul>

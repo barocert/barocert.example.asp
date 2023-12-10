@@ -67,6 +67,15 @@
 			</fieldset>
 
 			<fieldset class="fieldset1">
+				<legend>Navercert 출금동의 API</legend>
+				<ul>
+					<li><a href="NavercertExample/RequestCMS.asp">RequestCMS</a> - 출금동의 요청</li>
+					<li><a href="NavercertExample/GetCMSStatus.asp">getCMSStatus</a> - 출금동의 상태확인</li>
+					<li><a href="NavercertExample/VerifyCMS.asp">VerifyCMS</a> - 출금동의 검증</li>
+				</ul>
+			</fieldset>
+
+			<fieldset class="fieldset1">
 				<legend>Passcert 본인인증 API</legend>
 				<ul>
 					<li><a href="PasscertExample/RequestIdentity.asp">RequestIdentity</a> - 본인인증 요청</li>

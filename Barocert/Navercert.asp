@@ -9,6 +9,7 @@ Class NavercertService
 		m_BarocertBase.AddScope("421")
 		m_BarocertBase.AddScope("422")
 		m_BarocertBase.AddScope("423")
+		m_BarocertBase.AddScope("424")
 	End Sub
 
     Public Sub Initialize(linkID, SecretKey)
@@ -187,9 +188,64 @@ Class NavercertService
 		Set VerifyMultiSign = infoTmp
 	End Function 	
 
+	Public Function RequestCMS(ClientCode, ByRef CMS)
+
+		Dim tmpDic : Set tmpDic = CMS.toJsonInfo
+
+		Dim postdata : postdata = toString(tmpDic)
+
+		Dim result : Set result = m_BarocertBase.httpPOST("/NAVER/CMS/" + ClientCode, m_BarocertBase.getSession_token(), postdata)
+
+		Dim infoTmp : Set infoTmp = New CMSReceipt
+		infoTmp.fromJsonInfo result
+
+		Set RequestCMS = infoTmp
+	End Function
+
+	Public Function GetCMSStatus(ClientCode, ReceiptID)
+
+		If ClientCode = "" Then
+			Err.Raise -99999999, "NAVERCERT", "이용기관코드가 입력되지 않았습니다."
+		End If
+
+		If ReceiptID = "" Then
+			Err.Raise -99999999, "NAVERCERT", "접수아이디가 입력되지 않았습니다."
+		End If
+
+		Dim result : Set result = m_BarocertBase.httpGET("/NAVER/CMS/" + ClientCode + "/" + ReceiptID, m_BarocertBase.getSession_token)
+
+		Dim infoTmp : Set infoTmp = New CMSStatus
+		infoTmp.fromJsonInfo result
+
+		Set GetCMSStatus = infoTmp
+	End Function 
+
+	Public Function VerifyCMS(ClientCode, ReceiptID)
+
+		If ClientCode = "" Then
+			Err.Raise -99999999, "NAVERCERT", "이용기관코드가 입력되지 않았습니다."
+		End If
+
+		If ReceiptID = "" Then
+			Err.Raise -99999999, "NAVERCERT", "접수아이디가 입력되지 않았습니다."
+		End If
+
+		Dim result : Set result = m_BarocertBase.httpPOST("/NAVER/CMS/" + ClientCode + "/" + ReceiptID, m_BarocertBase.getSession_token(), "")
+		
+		Dim infoTmp : Set infoTmp = New CMSResult
+		infoTmp.fromJsonInfo result
+
+		Set VerifyCMS = infoTmp
+	End Function 
+
 	Public Function encrypt(PlainText)
 		encrypt = m_BarocertBase.encrypt(PlainText)
 	End Function
+
+	Public Function sha256(target)
+		sha256 = m_BarocertBase.sha256(target)
+	End Function
+
 End Class
 
 Class Identity
@@ -729,6 +785,139 @@ Class MultiSignResult
 				Set multiSignedData(i) = tmpObj
 			Next
 
+		On Error GoTo 0
+	End Sub
+End Class
+
+Class CMS
+	Public receiverHP
+	Public receiverName
+	Public receiverBirthday
+	Public reqTitle
+	Public reqMessage
+	Public callCenterNum
+	Public expireIn
+	Public requestCorp
+	Public bankName
+	Public bankAccountNum
+	Public bankAccountName
+	Public bankAccountBirthday
+	Public deviceOSType
+	Public returnURL
+	Public appUseYN
+
+	Public Function toJsonInfo()
+		Set toJsonInfo = JSON.parse("{}")
+		toJsonInfo.Set "receiverHP", receiverHP
+		toJsonInfo.Set "receiverName", receiverName
+		toJsonInfo.Set "receiverBirthday", receiverBirthday
+		toJsonInfo.Set "reqTitle", reqTitle
+		toJsonInfo.Set "reqMessage", reqMessage
+		toJsonInfo.Set "callCenterNum", callCenterNum
+		toJsonInfo.Set "expireIn", expireIn
+		toJsonInfo.Set "requestCorp", requestCorp
+		toJsonInfo.Set "bankName", bankName
+		toJsonInfo.Set "bankAccountNum", bankAccountNum
+		toJsonInfo.Set "bankAccountName", bankAccountName
+		toJsonInfo.Set "bankAccountBirthday", bankAccountBirthday
+		toJsonInfo.Set "deviceOSType", deviceOSType
+		toJsonInfo.Set "returnURL", returnURL
+		toJsonInfo.Set "appUseYN", appUseYN
+	End Function 
+
+End Class
+
+Class CMSReceipt
+	Public receiptID
+	Public scheme
+	Public marketUrl
+
+	Public Sub fromJsonInfo(jsonInfo)
+		On Error Resume Next
+			If Not isEmpty(jsonInfo.receiptID) Then
+				receiptID = jsonInfo.receiptID
+			End If
+			If Not isEmpty(jsonInfo.scheme) Then
+				scheme = jsonInfo.scheme
+			End If
+			If Not isEmpty(jsonInfo.marketUrl) Then
+				marketUrl = jsonInfo.marketUrl
+			End If
+		On Error GoTo 0
+	End Sub
+End Class
+
+Class CMSStatus
+	Public clientCode	
+	Public receiptID
+	Public state
+	Public expireDT
+
+	Public Sub fromJsonInfo(jsonInfo)
+		On Error Resume Next
+			If Not isEmpty(jsonInfo.clientCode) Then
+				clientCode = jsonInfo.clientCode
+			End If
+			If Not isEmpty(jsonInfo.receiptID) Then
+				receiptID = jsonInfo.receiptID
+			End If
+			If Not isEmpty(jsonInfo.state) Then
+				state = jsonInfo.state
+			End If
+			If Not isEmpty(jsonInfo.expireDT) Then
+				expireDT = jsonInfo.expireDT
+			End If
+		On Error GoTo 0
+	End Sub
+End Class
+
+Class CMSResult
+	Public receiptID
+	Public state
+	Public receiverName
+	Public receiverYear
+	Public receiverDay
+	Public receiverHP
+	Public receiverGender
+	Public receiverEmail
+	Public receiverForeign
+	Public signedData
+	Public ci
+	Public Sub fromJsonInfo(jsonInfo)
+		On Error Resume Next
+			If Not isEmpty(jsonInfo.receiptID) Then
+				receiptID = jsonInfo.receiptID
+			End If
+			If Not isEmpty(jsonInfo.state) Then
+				state = jsonInfo.state
+			End If
+			If Not isEmpty(jsonInfo.receiverName) Then
+				receiverName = jsonInfo.receiverName
+			End If
+			If Not isEmpty(jsonInfo.receiverHP) Then
+				receiverHP = jsonInfo.receiverHP
+			End If
+			If Not isEmpty(jsonInfo.receiverYear) Then
+				receiverYear = jsonInfo.receiverYear
+			End If
+			If Not isEmpty(jsonInfo.receiverDay) Then
+				receiverDay = jsonInfo.receiverDay
+			End If
+			If Not isEmpty(jsonInfo.receiverGender) Then
+				receiverGender = jsonInfo.receiverGender
+			End If
+			If Not isEmpty(jsonInfo.receiverEmail) Then
+				receiverEmail = jsonInfo.receiverEmail
+			End If
+			If Not isEmpty(jsonInfo.receiverForeign) Then
+				receiverForeign = jsonInfo.receiverForeign
+			End If
+			If Not isEmpty(jsonInfo.signedData) Then
+				signedData = jsonInfo.signedData
+			End If
+			If Not isEmpty(jsonInfo.ci) Then
+				ci = jsonInfo.ci
+			End If
 		On Error GoTo 0
 	End Sub
 End Class

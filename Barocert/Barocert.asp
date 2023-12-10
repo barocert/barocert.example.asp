@@ -238,6 +238,10 @@ Class BarocertBase
 	Public Function encrypt(plainText)
 		encrypt = m_Encryptor.enc(plainText)
 	End Function
+
+	public Function sha256(target)
+		sha256 = m_Linkhub.b64_sha256_urlsafe_nopadding(target)
+	End Function
 	
 End Class
 

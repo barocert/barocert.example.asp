@@ -34,6 +34,7 @@
     ' 모바일장비 유형('ANDROID', 'IOS'), 대문자 입력(대소문자 구분)
     ' reqIdentity.DeviceOSType = "ANDROID";
     ' AppToApp 방식 이용시, 호출할 URL
+    ' "http", "https"등의 웹프로토콜 사용 불가
     ' reqIdentity.ReturnURL = "navercert://Identity";
 
     On Error Resume Next

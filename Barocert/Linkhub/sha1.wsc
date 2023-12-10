@@ -29,6 +29,9 @@
 	<method name="b64_sha256">
 		<PARAMETER name="s"/>
 	</method>
+	<method name="b64_sha256_urlsafe_nopadding">
+		<PARAMETER name="s"/>
+	</method>
 	<method name="getLocalTime">
 	</method>
 </public>
@@ -59,6 +62,11 @@ function b64_sha256(d)
 {
 	var hmacObj = new jsSHA(d, "TEXT");
 	return hmacObj.getHash("SHA-256","B64", 1, "B64");
+}
+function b64_sha256_urlsafe_nopadding(d)
+{
+	var hmacObj = new jsSHA(d, "TEXT");
+	return hmacObj.getHash("SHA-256","B64", 1, "B64").replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 }
 
 function getLocalTime()

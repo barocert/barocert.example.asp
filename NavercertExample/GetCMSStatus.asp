@@ -7,19 +7,19 @@
 <!--#include file="common.asp"--> 
 <%
 	'**************************************************************
-	' 본인인증 요청 후 반환받은 접수아이디로 본인인증 진행 상태를 확인합니다.
-	' https://developers.barocert.com/reference/kakao/asp/identity/api#GetIdentityStatus
+	' 자동이체 출금동의 요청 후 반환받은 접수아이디로 인증 진행 상태를 확인합니다.
+  	' https://developers.barocert.com/reference/naver/asp/cms/api#GetCMSStatus
 	'**************************************************************
 
 	' 이용기관코드, 파트너가 등록한 이용기관의 코드 (파트너 사이트에서 확인가능)
-	Dim clientCode : clientCode = "023040000001"	
+	Dim clientCode : clientCode = "023090000021"	
 
-	' 본인인증 요청시 반환된 접수아이디
-	Dim receiptID : receiptID = "02309180230400000010000000000003"
+	' 출금동의 요청시 반환된 접수아이디
+	Dim receiptID : receiptID = "02311090230900000210000000000012"
 	
 	On Error Resume Next
 
-	Dim result : Set result = m_KakaocertService.GetIdentityStatus(clientCode, receiptID)
+	Dim result : Set result = m_NavercertService.GetCMSStatus(clientCode, receiptID)
 
 	If Err.Number <> 0 Then
 		Dim code : code = Err.Number
@@ -33,18 +33,13 @@
 			<p class="heading1">Response</p>
 			<br/>
 			<fieldset class="fieldset1">
-				<legend>카카오 본인인증 상태확인</legend>
+				<legend>네이버 출금동의 상태확인</legend>
 				<% If code = 0 Then %>
 					<ul>
 						<li>접수아이디 (ReceiptID) : <%=result.receiptID %></li>
 						<li>이용기관 코드 (ClientCode) : <%=result.clientCode %></li>
 						<li>상태 (State) : <%=result.state %></li>
-						<li>서명요청일시 (RequestDT) : <%=result.requestDT %></li>
-						<li>서명조회일시 (ViewDT) : <%=result.viewDT %></li>
-						<li>서명완료일시 (CompleteDT) : <%=result.completeDT %></li>
 						<li>서명만료일시 (ExpireDT) : <%=result.expireDT %></li>
-						<li>서명검증일시 (VerifyDT) : <%=result.verifyDT %></li>
-						
 					</ul>	
 				<% Else %>
 					<ul>
