@@ -44,7 +44,7 @@
         ' 서명 원문 유형
         ' token.tokenType = "HASH"
         ' 서명 원문 유형이 HASH인 경우, 원문은 SHA-256, Base64 URL Safe No Padding을 사용
-        ' token.Token = m_NavercertService.encrypt(m_NavercertService.sha256("전자서명(복수) 요청 원문 "+CStr(i)))
+        ' token.Token = m_NavercertService.encrypt(m_NavercertService.sha256_base64url("전자서명(복수) 요청 원문 "+CStr(i)))
         reqMultiSign.addToken i, token
     Next
     

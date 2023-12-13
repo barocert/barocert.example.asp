@@ -46,8 +46,8 @@ Public Function b64_sha256(postData)
     b64_sha256 = m_sha1.b64_sha256(postData)
 End Function
 
-Public Function b64_sha256_urlsafe_nopadding(target)
-    b64_sha256_urlsafe_nopadding = m_sha1.b64_sha256_urlsafe_nopadding(target)
+Public Function sha256ToBase64url(target)
+    sha256ToBase64url = m_sha1.sha256ToBase64url(target)
 End Function
 
 Public Function b64hmacsha1(secretkey, target)

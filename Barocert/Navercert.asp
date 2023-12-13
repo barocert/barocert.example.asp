@@ -242,8 +242,8 @@ Class NavercertService
 		encrypt = m_BarocertBase.encrypt(PlainText)
 	End Function
 
-	Public Function sha256(target)
-		sha256 = m_BarocertBase.sha256(target)
+	Public Function sha256_base64url(target)
+		sha256_base64url = m_BarocertBase.sha256_base64url(target)
 	End Function
 
 End Class
@@ -296,14 +296,7 @@ Class IdentityStatus
 	Public clientCode	
 	Public receiptID
 	Public state
-	Public expireIn
-	Public callCenterName
-	Public callCenterNum
-	Public returnURL
 	Public expireDT
-	Public deviceOSType
-	Public scheme
-	Public appUseYN
 
 	Public Sub fromJsonInfo(jsonInfo)
 		On Error Resume Next
@@ -316,29 +309,8 @@ Class IdentityStatus
 			If Not isEmpty(jsonInfo.state) Then
 				state = jsonInfo.state
 			End If
-			If Not isEmpty(jsonInfo.expireIn) Then
-				expireIn = jsonInfo.expireIn
-			End If
-			If Not isEmpty(jsonInfo.callCenterName) Then
-				callCenterName = jsonInfo.callCenterName
-			End If
-			If Not isEmpty(jsonInfo.callCenterNum) Then
-				callCenterNum = jsonInfo.callCenterNum
-			End If
-			If Not isEmpty(jsonInfo.returnURL) Then
-				returnURL = jsonInfo.returnURL
-			End If
 			If Not isEmpty(jsonInfo.expireDT) Then
 				expireDT = jsonInfo.expireDT
-			End If
-			If Not isEmpty(jsonInfo.deviceOSType) Then
-				deviceOSType = jsonInfo.deviceOSType
-			End If
-			If Not isEmpty(jsonInfo.scheme) Then
-				scheme = jsonInfo.scheme
-			End If
-			If Not isEmpty(jsonInfo.appUseYN) Then
-				appUseYN = jsonInfo.appUseYN
 			End If
 		On Error GoTo 0
 	End Sub
@@ -451,16 +423,7 @@ Class SignStatus
 	Public clientCode	
 	Public receiptID
 	Public state
-	Public expireIn
-	Public callCenterName
-	Public callCenterNum
-	Public reqTitle
-	Public returnURL
 	Public expireDT
-	Public tokenType
-	Public scheme
-	Public deviceOSType
-	Public appUseYN
 
 	Public Sub fromJsonInfo(jsonInfo)
 		On Error Resume Next
@@ -473,35 +436,8 @@ Class SignStatus
 			If Not isEmpty(jsonInfo.state) Then
 				state = jsonInfo.state
 			End If
-			If Not isEmpty(jsonInfo.expireIn) Then
-				expireIn = jsonInfo.expireIn
-			End If
-			If Not isEmpty(jsonInfo.callCenterName) Then
-				callCenterName = jsonInfo.callCenterName
-			End If
-			If Not isEmpty(jsonInfo.callCenterNum) Then
-				callCenterNum = jsonInfo.callCenterNum
-			End If
-			If Not isEmpty(jsonInfo.reqTitle) Then
-				reqTitle = jsonInfo.reqTitle
-			End If
-			If Not isEmpty(jsonInfo.returnURL) Then
-				returnURL = jsonInfo.returnURL
-			End If
 			If Not isEmpty(jsonInfo.expireDT) Then
 				expireDT = jsonInfo.expireDT
-			End If
-			If Not isEmpty(jsonInfo.tokenType) Then
-				tokenType = jsonInfo.tokenType
-			End If
-			If Not isEmpty(jsonInfo.scheme) Then
-				scheme = jsonInfo.scheme
-			End If
-			If Not isEmpty(jsonInfo.deviceOSType) Then
-				deviceOSType = jsonInfo.deviceOSType
-			End If
-			If Not isEmpty(jsonInfo.appUseYN) Then
-				appUseYN = jsonInfo.appUseYN
 			End If
 		On Error GoTo 0
 	End Sub
@@ -661,16 +597,7 @@ Class MultiSignStatus
 	Public receiptID
 	Public clientCode
 	Public state
-	Public expireIn
-	Public callCenterName
-	Public callCenterNum
-	Public reqTitle
-	Public returnURL
-	Public tokenTypes()
 	Public expireDT
-	Public scheme
-	Public deviceOSType
-	Public appUseYN
 
 	Public Sub Class_Initialize
 		ReDim tokenTypes(-1)
@@ -687,32 +614,8 @@ Class MultiSignStatus
 			If Not isEmpty(jsonInfo.state) Then
 				state = jsonInfo.state
 			End If
-			If Not isEmpty(jsonInfo.expireIn) Then
-				expireIn = jsonInfo.expireIn
-			End If
-			If Not isEmpty(jsonInfo.callCenterName) Then
-				callCenterName = jsonInfo.callCenterName
-			End If
-			If Not isEmpty(jsonInfo.callCenterNum) Then
-				callCenterNum = jsonInfo.callCenterNum
-			End If
-			If Not isEmpty(jsonInfo.reqTitle) Then
-				reqTitle = jsonInfo.reqTitle
-			End If
-			If Not isEmpty(jsonInfo.returnURL) Then
-				returnURL = jsonInfo.returnURL
-			End If
 			If Not isEmpty(jsonInfo.expireDT) Then
 				expireDT = jsonInfo.expireDT
-			End If
-			If Not isEmpty(jsonInfo.scheme) Then
-				scheme = jsonInfo.scheme
-			End If
-			If Not isEmpty(jsonInfo.deviceOSType) Then
-				deviceOSType = jsonInfo.deviceOSType
-			End If
-			If Not isEmpty(jsonInfo.appUseYN) Then
-				appUseYN = jsonInfo.appUseYN
 			End If
 
 			ReDim tokenTypes(jsonInfo.tokenTypes.length)

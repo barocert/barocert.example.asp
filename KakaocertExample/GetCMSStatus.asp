@@ -15,7 +15,7 @@
 	Dim clientCode : clientCode = "023040000001"	
 
 	' 출금동의 요청시 반환된 접수아이디
-	Dim receiptID : receiptID = "02309180230400000010000000000007"
+	Dim receiptID : receiptID = "02312130230400000010000000000008"
 	
 	On Error Resume Next
 

@@ -319,22 +319,10 @@ Class IdentityStatus
 	Public clientCode	
 	Public receiptID
 	Public state
-	Public expireIn
-	Public callCenterName
-	Public callCenterNum
-	Public reqTitle
-	Public reqMessage
 	Public requestDT
 	Public completeDT
 	Public expireDT
 	Public rejectDT
-	Public tokenType
-	Public userAgreementYN
-	Public receiverInfoYN
-	Public telcoType
-	Public deviceOSType
-	Public scheme
-	Public appUseYN
 
 	Public Sub fromJsonInfo(jsonInfo)
 		On Error Resume Next
@@ -347,21 +335,6 @@ Class IdentityStatus
 			If Not isEmpty(jsonInfo.state) Then
 				state = jsonInfo.state
 			End If
-			If Not isEmpty(jsonInfo.expireIn) Then
-				expireIn = jsonInfo.expireIn
-			End If
-			If Not isEmpty(jsonInfo.callCenterName) Then
-				callCenterName = jsonInfo.callCenterName
-			End If
-			If Not isEmpty(jsonInfo.callCenterNum) Then
-				callCenterNum = jsonInfo.callCenterNum
-			End If
-			If Not isEmpty(jsonInfo.reqTitle) Then
-				reqTitle = jsonInfo.reqTitle
-			End If
-			If Not isEmpty(jsonInfo.reqMessage) Then
-				reqMessage = jsonInfo.reqMessage
-			End If
 			If Not isEmpty(jsonInfo.requestDT) Then
 				requestDT = jsonInfo.requestDT
 			End If
@@ -373,27 +346,6 @@ Class IdentityStatus
 			End If
 			If Not isEmpty(jsonInfo.rejectDT) Then
 				rejectDT = jsonInfo.rejectDT
-			End If
-			If Not isEmpty(jsonInfo.tokenType) Then
-				tokenType = jsonInfo.tokenType
-			End If
-			If Not isEmpty(jsonInfo.userAgreementYN) Then
-				userAgreementYN = jsonInfo.userAgreementYN
-			End If
-			If Not isEmpty(jsonInfo.receiverInfoYN) Then
-				receiverInfoYN = jsonInfo.receiverInfoYN
-			End If
-			If Not isEmpty(jsonInfo.telcoType) Then
-				telcoType = jsonInfo.telcoType
-			End If
-			If Not isEmpty(jsonInfo.deviceOSType) Then
-				deviceOSType = jsonInfo.deviceOSType
-			End If
-			If Not isEmpty(jsonInfo.scheme) Then
-				scheme = jsonInfo.scheme
-			End If
-			If Not isEmpty(jsonInfo.appUseYN) Then
-				appUseYN = jsonInfo.appUseYN
 			End If
 		On Error GoTo 0
 	End Sub
@@ -525,25 +477,10 @@ Class SignStatus
 	Public clientCode	
 	Public receiptID
 	Public state
-	Public expireIn
-	Public callCenterName
-	Public callCenterNum
-	Public reqTitle
-	Public reqMessage
 	Public requestDT
 	Public completeDT
 	Public expireDT
 	Public rejectDT
-	Public tokenType
-	Public userAgreementYN
-	Public receiverInfoYN
-	Public telcoType
-	Public deviceOSType
-	Public originalTypeCode
-	Public originalURL
-	Public originalFormatCode
-	Public scheme
-	Public appUseYN
 
 	Public Sub fromJsonInfo(jsonInfo)
 		On Error Resume Next
@@ -556,21 +493,6 @@ Class SignStatus
 			If Not isEmpty(jsonInfo.state) Then
 				state = jsonInfo.state
 			End If
-			If Not isEmpty(jsonInfo.expireIn) Then
-				expireIn = jsonInfo.expireIn
-			End If
-			If Not isEmpty(jsonInfo.callCenterName) Then
-				callCenterName = jsonInfo.callCenterName
-			End If
-			If Not isEmpty(jsonInfo.callCenterNum) Then
-				callCenterNum = jsonInfo.callCenterNum
-			End If
-			If Not isEmpty(jsonInfo.reqTitle) Then
-				reqTitle = jsonInfo.reqTitle
-			End If
-			If Not isEmpty(jsonInfo.reqMessage) Then
-				reqMessage = jsonInfo.reqMessage
-			End If
 			If Not isEmpty(jsonInfo.requestDT) Then
 				requestDT = jsonInfo.requestDT
 			End If
@@ -582,36 +504,6 @@ Class SignStatus
 			End If
 			If Not isEmpty(jsonInfo.rejectDT) Then
 				rejectDT = jsonInfo.rejectDT
-			End If
-			If Not isEmpty(jsonInfo.tokenType) Then
-				tokenType = jsonInfo.tokenType
-			End If
-			If Not isEmpty(jsonInfo.userAgreementYN) Then
-				userAgreementYN = jsonInfo.userAgreementYN
-			End If
-			If Not isEmpty(jsonInfo.receiverInfoYN) Then
-				receiverInfoYN = jsonInfo.receiverInfoYN
-			End If
-			If Not isEmpty(jsonInfo.telcoType) Then
-				telcoType = jsonInfo.telcoType
-			End If
-			If Not isEmpty(jsonInfo.deviceOSType) Then
-				deviceOSType = jsonInfo.deviceOSType
-			End If
-			If Not isEmpty(jsonInfo.originalTypeCode) Then
-				originalTypeCode = jsonInfo.originalTypeCode
-			End If
-			If Not isEmpty(jsonInfo.originalURL) Then
-				originalURL = jsonInfo.originalURL
-			End If
-			If Not isEmpty(jsonInfo.originalFormatCode) Then
-				originalFormatCode = jsonInfo.originalFormatCode
-			End If
-			If Not isEmpty(jsonInfo.scheme) Then
-				scheme = jsonInfo.scheme
-			End If
-			If Not isEmpty(jsonInfo.appUseYN) Then
-				appUseYN = jsonInfo.appUseYN
 			End If
 		On Error GoTo 0
 	End Sub
@@ -748,22 +640,10 @@ Class CMSStatus
 	Public clientCode	
 	Public receiptID
 	Public state
-	Public expireIn
-	Public callCenterName
-	Public callCenterNum
-	Public reqTitle
-	Public reqMessage
 	Public requestDT
 	Public completeDT
 	Public expireDT
 	Public rejectDT
-	Public tokenType
-	Public userAgreementYN
-	Public receiverInfoYN
-	Public telcoType
-	Public deviceOSType
-	Public scheme
-	Public appUseYN
 
 	Public Sub fromJsonInfo(jsonInfo)
 		On Error Resume Next
@@ -776,21 +656,6 @@ Class CMSStatus
 			If Not isEmpty(jsonInfo.state) Then
 				state = jsonInfo.state
 			End If
-			If Not isEmpty(jsonInfo.expireIn) Then
-				expireIn = jsonInfo.expireIn
-			End If
-			If Not isEmpty(jsonInfo.callCenterName) Then
-				callCenterName = jsonInfo.callCenterName
-			End If
-			If Not isEmpty(jsonInfo.callCenterNum) Then
-				callCenterNum = jsonInfo.callCenterNum
-			End If
-			If Not isEmpty(jsonInfo.reqTitle) Then
-				reqTitle = jsonInfo.reqTitle
-			End If
-			If Not isEmpty(jsonInfo.reqMessage) Then
-				reqMessage = jsonInfo.reqMessage
-			End If
 			If Not isEmpty(jsonInfo.requestDT) Then
 				requestDT = jsonInfo.requestDT
 			End If
@@ -802,27 +667,6 @@ Class CMSStatus
 			End If
 			If Not isEmpty(jsonInfo.rejectDT) Then
 				rejectDT = jsonInfo.rejectDT
-			End If
-			If Not isEmpty(jsonInfo.tokenType) Then
-				tokenType = jsonInfo.tokenType
-			End If
-			If Not isEmpty(jsonInfo.userAgreementYN) Then
-				userAgreementYN = jsonInfo.userAgreementYN
-			End If
-			If Not isEmpty(jsonInfo.receiverInfoYN) Then
-				receiverInfoYN = jsonInfo.receiverInfoYN
-			End If
-			If Not isEmpty(jsonInfo.telcoType) Then
-				telcoType = jsonInfo.telcoType
-			End If
-			If Not isEmpty(jsonInfo.deviceOSType) Then
-				deviceOSType = jsonInfo.deviceOSType
-			End If
-			If Not isEmpty(jsonInfo.scheme) Then
-				scheme = jsonInfo.scheme
-			End If
-			If Not isEmpty(jsonInfo.appUseYN) Then
-				appUseYN = jsonInfo.appUseYN
 			End If
 		On Error GoTo 0
 	End Sub
@@ -951,22 +795,10 @@ Class LoginStatus
 Public clientCode	
 	Public receiptID
 	Public state
-	Public expireIn
-	Public callCenterName
-	Public callCenterNum
-	Public reqTitle
-	Public reqMessage
 	Public requestDT
 	Public completeDT
 	Public expireDT
 	Public rejectDT
-	Public tokenType
-	Public userAgreementYN
-	Public receiverInfoYN
-	Public telcoType
-	Public deviceOSType
-	Public scheme
-	Public appUseYN
 
 	Public Sub fromJsonInfo(jsonInfo)
 		On Error Resume Next
@@ -979,21 +811,6 @@ Public clientCode
 			If Not isEmpty(jsonInfo.state) Then
 				state = jsonInfo.state
 			End If
-			If Not isEmpty(jsonInfo.expireIn) Then
-				expireIn = jsonInfo.expireIn
-			End If
-			If Not isEmpty(jsonInfo.callCenterName) Then
-				callCenterName = jsonInfo.callCenterName
-			End If
-			If Not isEmpty(jsonInfo.callCenterNum) Then
-				callCenterNum = jsonInfo.callCenterNum
-			End If
-			If Not isEmpty(jsonInfo.reqTitle) Then
-				reqTitle = jsonInfo.reqTitle
-			End If
-			If Not isEmpty(jsonInfo.reqMessage) Then
-				reqMessage = jsonInfo.reqMessage
-			End If
 			If Not isEmpty(jsonInfo.requestDT) Then
 				requestDT = jsonInfo.requestDT
 			End If
@@ -1005,27 +822,6 @@ Public clientCode
 			End If
 			If Not isEmpty(jsonInfo.rejectDT) Then
 				rejectDT = jsonInfo.rejectDT
-			End If
-			If Not isEmpty(jsonInfo.tokenType) Then
-				tokenType = jsonInfo.tokenType
-			End If
-			If Not isEmpty(jsonInfo.userAgreementYN) Then
-				userAgreementYN = jsonInfo.userAgreementYN
-			End If
-			If Not isEmpty(jsonInfo.receiverInfoYN) Then
-				receiverInfoYN = jsonInfo.receiverInfoYN
-			End If
-			If Not isEmpty(jsonInfo.telcoType) Then
-				telcoType = jsonInfo.telcoType
-			End If
-			If Not isEmpty(jsonInfo.deviceOSType) Then
-				deviceOSType = jsonInfo.deviceOSType
-			End If
-			If Not isEmpty(jsonInfo.scheme) Then
-				scheme = jsonInfo.scheme
-			End If
-			If Not isEmpty(jsonInfo.appUseYN) Then
-				appUseYN = jsonInfo.appUseYN
 			End If
 		On Error GoTo 0
 	End Sub

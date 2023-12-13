@@ -15,7 +15,7 @@
 	Dim clientCode : clientCode = "023090000021"	
 
 	' 전자서명 요청시 반환된 접수아이디
-	Dim receiptID : receiptID = "02311090230900000210000000000010"
+	Dim receiptID : receiptID = "02312130230900000210000000000026"
 	
 	On Error Resume Next
 

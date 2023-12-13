@@ -8,14 +8,14 @@
 <%
 	'**************************************************************
 	' 자동이체 출금동의 요청 후 반환받은 접수아이디로 인증 진행 상태를 확인합니다.
-  	' https://developers.barocert.com/reference/naver/asp/cms/api#GetCMSStatus
+	' https://developers.barocert.com/reference/naver/asp/cms/api#GetCMSStatus
 	'**************************************************************
 
 	' 이용기관코드, 파트너가 등록한 이용기관의 코드 (파트너 사이트에서 확인가능)
 	Dim clientCode : clientCode = "023090000021"	
 
 	' 출금동의 요청시 반환된 접수아이디
-	Dim receiptID : receiptID = "02311090230900000210000000000012"
+	Dim receiptID : receiptID = "02312130230900000210000000000028"
 	
 	On Error Resume Next
 

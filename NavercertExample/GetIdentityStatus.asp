@@ -15,7 +15,7 @@
 	Dim clientCode : clientCode = "023090000021"	
 
 	' 본인인증 요청시 반환된 접수아이디
-	Dim receiptID : receiptID = "02311090230900000210000000000012"
+	Dim receiptID : receiptID = "02312130230900000210000000000025"
 	
 	On Error Resume Next
 

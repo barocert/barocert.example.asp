@@ -17,7 +17,7 @@
 	Dim clientCode : clientCode = "023070000014"	
 
 	' 본인인증 요청시 반환된 접수아이디
-	Dim receiptID : receiptID = "02309180230700000140000000000008"
+	Dim receiptID : receiptID = "02312130230700000140000000000005"
 	
 	On Error Resume Next
 
@@ -41,7 +41,6 @@
 						<li>이용기관 코드 (ClientCode) : <%=result.clientCode %></li>
 						<li>접수아이디 (ReceiptID) : <%=result.receiptID %></li>
 						<li>상태 (State) : <%=result.state %></li>
-						<li>요청 만료시간 (ExpireIn) : <%=result.expireIn %></li>
 						<li>서명요청일시 (RequestDT) : <%=result.requestDT %></li>
 						<li>서명완료일시 (CompleteDT) : <%=result.completeDT %></li>
 						<li>서명만료일시 (ExpireDT) : <%=result.expireDT %></li>
