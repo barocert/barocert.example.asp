@@ -49,7 +49,7 @@
     Next
     
     ' AppToApp 인증요청 여부
-    ' true - AppToApp 인증방식, false - Talk Message 인증방식
+    ' true - AppToApp 인증방식, false - 푸시(Push) 인증방식
     reqMultiSign.AppUseYN = false
     ' AppToApp 인증방식에서 사용
     ' 모바일장비 유형('ANDROID', 'IOS'), 대문자 입력(대소문자 구분)

@@ -41,7 +41,7 @@
     ' 서명 원문 유형이 HASH인 경우, 원문은 SHA-256, Base64 URL Safe No Padding을 사용
     ' reqSign.Token = m_NavercertService.encrypt(m_NavercertService.sha256_base64url("전자서명(단건) 요청 원문"))
     ' AppToApp 인증요청 여부
-    ' true - AppToApp 인증방식, false - Talk Message 인증방식
+    ' true - AppToApp 인증방식, false - 푸시(Push) 인증방식
     reqSign.AppUseYN = false
     ' AppToApp 인증방식에서 사용
     ' 모바일장비 유형('ANDROID', 'IOS'), 대문자 입력(대소문자 구분)
