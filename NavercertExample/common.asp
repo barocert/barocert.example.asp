@@ -2,14 +2,19 @@
 <!--#include virtual="Barocert/Navercert.asp"-->
 <%
 	'**************************************************************
-	' Navercert API ASP SDK Example
+	' Barocert NAVER API ASP SDK Example
 	'
-	' - 업데이트 일자 : 2023-12-13
-	' - 연동 기술지원 연락처 : 1600-9854
-	' - 연동 기술지원 이메일 : code@linkhubcorp.com
-	'
+	' 업데이트 일자 : 2024-04-17
+	' 연동기술지원 연락처 : 1600-9854
+	' 연동기술지원 이메일 : code@linkhubcorp.com
+	'         
 	' <테스트 연동개발 준비사항>
-	' 링크아이디(LinkID)와 비밀키(SecretKey)를 메일로 발급받은 인증정보를 참조하여 변경합니다.
+	'   1) API Key 변경 (연동신청 시 메일로 전달된 정보)
+	'       - LinkID : 링크허브에서 발급한 링크아이디
+	'       - SecretKey : 링크허브에서 발급한 비밀키
+	'   2) SDK 환경설정 필수 옵션 설정
+	'       - IPRestrictOnOff : 인증토큰 IP 검증 설정, true-사용, false-미사용, (기본값:true)
+	'       - UseStaticIP : 통신 IP 고정, true-사용, false-미사용, (기본값:false)
 	'**************************************************************
 
 	' 링크아이디 
@@ -23,9 +28,9 @@
 	' Navercert API 서비스 모듈 초기화
 	m_NavercertService.Initialize LinkID, SecretKey
 
-	' 인증토큰 IP제한기능 사용여부, 권장(True)
+	' 인증토큰 IP 검증 설정, true-사용, false-미사용, (기본값:true)
 	m_NavercertService.IPRestrictOnOff = True
 
-	' 네이버써트 API 서비스 고정 IP 사용여부, True-사용, False-미사용, 기본값(False)
+	' 통신 IP 고정, true-사용, false-미사용, (기본값:false)
 	m_NavercertService.useStaticIP = False
 %>

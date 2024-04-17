@@ -346,6 +346,10 @@ Class IdentityResult
 	Public state
 	Public signedData
 	Public ci
+	Public receiverName
+	Public receiverYear
+	Public receiverDay
+	Public receiverHP
 
 	Public Sub fromJsonInfo(jsonInfo)
 		On Error Resume Next
@@ -360,6 +364,18 @@ Class IdentityResult
 			End If
 			If Not isEmpty(jsonInfo.ci) Then
 				ci = jsonInfo.ci
+			End If
+			If Not isEmpty(jsonInfo.receiverName) Then
+				receiverName = jsonInfo.receiverName
+			End If
+			If Not isEmpty(jsonInfo.receiverYear) Then
+				receiverYear = jsonInfo.receiverYear
+			End If
+			If Not isEmpty(jsonInfo.receiverDay) Then
+				receiverDay = jsonInfo.receiverDay
+			End If
+			If Not isEmpty(jsonInfo.receiverHP) Then
+				receiverHP = jsonInfo.receiverHP
 			End If
 		On Error GoTo 0
 	End Sub
@@ -456,6 +472,10 @@ Class SignResult
 	Public state
 	Public signedData
 	Public ci
+	Public receiverName
+	Public receiverYear
+	Public receiverDay
+	Public receiverHP
 
 	Public Sub fromJsonInfo(jsonInfo)
 		On Error Resume Next
@@ -470,6 +490,18 @@ Class SignResult
 			End If
 			If Not isEmpty(jsonInfo.ci) Then
 				ci = jsonInfo.ci
+			End If
+			If Not isEmpty(jsonInfo.receiverName) Then
+				receiverName = jsonInfo.receiverName
+			End If
+			If Not isEmpty(jsonInfo.receiverYear) Then
+				receiverYear = jsonInfo.receiverYear
+			End If
+			If Not isEmpty(jsonInfo.receiverDay) Then
+				receiverDay = jsonInfo.receiverDay
+			End If
+			If Not isEmpty(jsonInfo.receiverHP) Then
+				receiverHP = jsonInfo.receiverHP
 			End If
 		On Error GoTo 0
 	End Sub
@@ -656,6 +688,10 @@ Class MultiSignResult
 	Public receiptID
 	Public state
 	Public ci
+	Public receiverName
+	Public receiverYear
+	Public receiverDay
+	Public receiverHP
 	Public multiSignedData()
 
 	Public Sub Class_Initialize
@@ -672,6 +708,18 @@ Class MultiSignResult
 			End If
 			If Not isEmpty(jsonInfo.ci) Then
 				ci = jsonInfo.ci
+			End If
+			If Not isEmpty(jsonInfo.receiverName) Then
+				receiverName = jsonInfo.receiverName
+			End If
+			If Not isEmpty(jsonInfo.receiverYear) Then
+				receiverYear = jsonInfo.receiverYear
+			End If
+			If Not isEmpty(jsonInfo.receiverDay) Then
+				receiverDay = jsonInfo.receiverDay
+			End If
+			If Not isEmpty(jsonInfo.receiverHP) Then
+				receiverHP = jsonInfo.receiverHP
 			End If
 
 			ReDim multiSignedData(jsonInfo.multiSignedData.length)
@@ -783,6 +831,10 @@ Class CMSResult
 	Public state
 	Public signedData
 	Public ci
+	Public receiverName
+	Public receiverYear
+	Public receiverDay
+	Public receiverHP
 
 	Public Sub fromJsonInfo(jsonInfo)
 		On Error Resume Next
@@ -798,6 +850,18 @@ Class CMSResult
 			If Not isEmpty(jsonInfo.ci) Then
 				ci = jsonInfo.ci
 			End If
+			If Not isEmpty(jsonInfo.receiverName) Then
+				receiverName = jsonInfo.receiverName
+			End If
+			If Not isEmpty(jsonInfo.receiverYear) Then
+				receiverYear = jsonInfo.receiverYear
+			End If
+			If Not isEmpty(jsonInfo.receiverDay) Then
+				receiverDay = jsonInfo.receiverDay
+			End If
+			If Not isEmpty(jsonInfo.receiverHP) Then
+				receiverHP = jsonInfo.receiverHP
+			End If
 		On Error GoTo 0
 	End Sub
 End Class
@@ -807,6 +871,10 @@ Class LoginResult
 	Public state
 	Public signedData
 	Public ci
+	Public receiverName
+	Public receiverYear
+	Public receiverDay
+	Public receiverHP
 
 	Public Sub fromJsonInfo(jsonInfo)
 		On Error Resume Next
@@ -821,6 +889,18 @@ Class LoginResult
 			End If
 			If Not isEmpty(jsonInfo.ci) Then
 				ci = jsonInfo.ci
+			End If
+			If Not isEmpty(jsonInfo.receiverName) Then
+				receiverName = jsonInfo.receiverName
+			End If
+			If Not isEmpty(jsonInfo.receiverYear) Then
+				receiverYear = jsonInfo.receiverYear
+			End If
+			If Not isEmpty(jsonInfo.receiverDay) Then
+				receiverDay = jsonInfo.receiverDay
+			End If
+			If Not isEmpty(jsonInfo.receiverHP) Then
+				receiverHP = jsonInfo.receiverHP
 			End If
 		On Error GoTo 0
 	End Sub
