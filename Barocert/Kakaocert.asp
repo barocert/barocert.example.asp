@@ -350,6 +350,7 @@ Class IdentityResult
 	Public receiverYear
 	Public receiverDay
 	Public receiverHP
+	Public receiverGender
 
 	Public Sub fromJsonInfo(jsonInfo)
 		On Error Resume Next
@@ -376,6 +377,9 @@ Class IdentityResult
 			End If
 			If Not isEmpty(jsonInfo.receiverHP) Then
 				receiverHP = jsonInfo.receiverHP
+			End If
+			If Not isEmpty(jsonInfo.receiverGender) Then
+				receiverGender = jsonInfo.receiverGender
 			End If
 		On Error GoTo 0
 	End Sub
@@ -476,6 +480,7 @@ Class SignResult
 	Public receiverYear
 	Public receiverDay
 	Public receiverHP
+	Public receiverGender
 
 	Public Sub fromJsonInfo(jsonInfo)
 		On Error Resume Next
@@ -502,6 +507,9 @@ Class SignResult
 			End If
 			If Not isEmpty(jsonInfo.receiverHP) Then
 				receiverHP = jsonInfo.receiverHP
+			End If
+			If Not isEmpty(jsonInfo.receiverGender) Then
+				receiverGender = jsonInfo.receiverGender
 			End If
 		On Error GoTo 0
 	End Sub
@@ -692,6 +700,7 @@ Class MultiSignResult
 	Public receiverYear
 	Public receiverDay
 	Public receiverHP
+	Public receiverGender
 	Public multiSignedData()
 
 	Public Sub Class_Initialize
@@ -720,6 +729,9 @@ Class MultiSignResult
 			End If
 			If Not isEmpty(jsonInfo.receiverHP) Then
 				receiverHP = jsonInfo.receiverHP
+			End If
+			If Not isEmpty(jsonInfo.receiverGender) Then
+				receiverGender = jsonInfo.receiverGender
 			End If
 
 			ReDim multiSignedData(jsonInfo.multiSignedData.length)
@@ -835,6 +847,7 @@ Class CMSResult
 	Public receiverYear
 	Public receiverDay
 	Public receiverHP
+	Public receiverGender
 
 	Public Sub fromJsonInfo(jsonInfo)
 		On Error Resume Next
@@ -862,6 +875,9 @@ Class CMSResult
 			If Not isEmpty(jsonInfo.receiverHP) Then
 				receiverHP = jsonInfo.receiverHP
 			End If
+			If Not isEmpty(jsonInfo.receiverGender) Then
+				receiverGender = jsonInfo.receiverGender
+			End If
 		On Error GoTo 0
 	End Sub
 End Class
@@ -875,6 +891,7 @@ Class LoginResult
 	Public receiverYear
 	Public receiverDay
 	Public receiverHP
+	Public receiverGender
 
 	Public Sub fromJsonInfo(jsonInfo)
 		On Error Resume Next
@@ -901,6 +918,9 @@ Class LoginResult
 			End If
 			If Not isEmpty(jsonInfo.receiverHP) Then
 				receiverHP = jsonInfo.receiverHP
+			End If
+			If Not isEmpty(jsonInfo.receiverGender) Then
+				receiverGender = jsonInfo.receiverGender
 			End If
 		On Error GoTo 0
 	End Sub
